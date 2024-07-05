@@ -1,9 +1,9 @@
 const Categories = () => {
-    return (
-      <div>
-        
-      </div>
-    )
-  }
-  
-  export default Categories
+  return (
+    <div>
+      <h3>Hi</h3>
+    </div>
+  )
+}
+
+export default Categories

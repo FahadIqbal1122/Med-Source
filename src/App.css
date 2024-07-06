@@ -24,13 +24,16 @@ body {
   color: black;
 }
 
-.img1{
+/* .img1{
   height: 70vh;
   margin-top: 20vh;
   margin-left: 10vh;
+} */
+
+.main{
+  display: flex;
+  justify-content: space-around;
 }
 
-.here{
-  margin-left: 120vh;
-  margin-bottom: 200vh;
-}
+
+

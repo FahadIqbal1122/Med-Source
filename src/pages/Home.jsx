@@ -1,4 +1,4 @@
-import {  useRef } from 'react'
+import { useRef } from 'react'
 
 const Home = () => {
   const formSectionRef = useRef(null)
@@ -10,34 +10,32 @@ const Home = () => {
   }
   return (
     <>
-      <div>
-        <img className="img1" src="../public/images/doctor.png" alt="drs" />
-      </div>
-
-      <section className='here' ref={formSectionRef}>
-        <h1>Here</h1>
-        <div className='intro'>
-          <p>The most suitable place to receive health care and obtain 
-            medicines from inside and outside the country</p>
+      <section className='main' ref={formSectionRef}>
+        <div className="img1">
+          <img src="../public/images/doctor.png" alt="drs" />
         </div>
-        <div className='services'>
-        <button onClick={() => scrollToElement(renderCountSectionRef)}>
-          Our Services
-        </button>
-        <button onClick={() => scrollToElement(renderCountSectionRef)}>
-          Let's Start
-        </button>
+
+        <div className='about'>
+          <div className='here'>
+            <h1>Here</h1>
+          </div>
+
+          <div className='intro'>
+            <p>The most suitable place to receive health care and obtain
+              medicines from inside and outside the country</p>
+          </div>
+
+          <div className='services'>
+            <button onClick={() => scrollToElement(renderCountSectionRef)}>
+              Our Services
+            </button>
+            <button onClick={() => scrollToElement(renderCountSectionRef)}>
+              Let's Start
+            </button>
+          </div>
         </div>
       </section>
 
-
-
-
-
-
-
-
-<br />
       <section className='ourServices' ref={renderCountSectionRef}>
         <div>
           Order the medicines

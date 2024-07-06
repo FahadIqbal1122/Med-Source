@@ -60,97 +60,57 @@ body {
       margin-left: 2vh;
 }
 
-/* .ourServices {
+.ourServices {
+  background-image: url('../public/images/back.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.service {
+  color: #333;
+  padding: 20px;
+  border-radius: 10px;
+  display: flex;
+  flex: 1 1 calc(33% - 20px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.service img {
+  max-width: 100px;
+  margin-bottom: 20px;
+  background-color: #000000;
+  border-radius: 10%;
+
+}
+
+.service h3 {
+  font-size: 1.7em;
+  margin-bottom: 30px;
+  margin-left: 100px;
+}
+
+.service p {
+  font-size: 1.2em;
+  margin-top: 30px;
+}
+
+.ourServices2 {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
   background-image: url('../public/images/background2.png');
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center;
-  height: 100vh;
+  background-position:  top;
   margin: 0;
   padding: 40px;
-  border-radius: 10px;
-  color: rgb(0, 0, 0);
-}
-
-.service {
-  flex: 1 1 calc(25% - 20px);
-  background: #ffffff1a;
-  padding: 20px;
-  border-radius: 10px;
-  text-align: center;
-  transition: transform 0.3s;
-}
-
-.service img {
-  max-width: 100px;
-  margin-bottom: 20px;
-}
-
-.service h3 {
-  font-size: 1.7em;
-  margin-bottom: 10px;
-}
-
-.service p {
-  font-size: 1.2em;
-  margin-top: 0;
-}
-
-.service:hover {
-  transform: scale(1.05);
-} */
-
-.ourServices {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  background: #8e44ad;
-  padding: 40px;
-  border-radius: 10px;
   color: white;
-}
-
-.service {
-  flex: 1 1 calc(25% - 20px);
-  background: #ffffff1a;
-  padding: 20px;
-  border-radius: 10px;
-  text-align: center;
-  transition: transform 0.3s;
-}
-
-.service img {
-  max-width: 100px;
-  margin-bottom: 20px;
-}
-
-.service h3 {
-  font-size: 1.2em;
-  margin-bottom: 10px;
-}
-
-.service p {
-  font-size: 0.9em;
-  margin-top: 0;
-}
-
-/* .service:hover {
-  transform: scale(1.05);
-} */
-
-
-.ourServices2 {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  background: #8e44ad;
-  padding: 40px;
-  border-radius: 10px;
-  color: white;
-  border-top: solid ;
 }
 
 .service2 {
@@ -161,6 +121,7 @@ body {
   text-align: center;
   transition: transform 0.3s;
   cursor: pointer;
+  border: solid #DDB0FB;
 }
 
 .service2:hover {
@@ -189,5 +150,22 @@ body {
 
 
 
+.Category-container {
+  display: flex;
+  justify-content: space-evenly;
+  /* align-items: center; */
+  cursor: pointer;
+}
+.Category-container button {
+  border: none;
+  background-color: transparent;
+  width: 20vh;
+  height: 15vh;
+  cursor: pointer;
+}
 
+.cateh1 {
+  text-align: center;
+  font-size: 10vh;
+}
 

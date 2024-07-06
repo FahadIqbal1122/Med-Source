@@ -25,6 +25,8 @@ body {
 button {
   border: none;
   background-color: transparent;
+  width: 20vh;
+  height: 15vh;
 }
 
 h1 {

@@ -1,4 +1,5 @@
 import Nav from '../components/Nav'
+import RequestMed from './RequestMed'
 
 const Home = () => {
   return (

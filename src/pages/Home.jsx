@@ -37,22 +37,43 @@ const Home = () => {
       </section>
 
       <section className='ourServices' ref={renderCountSectionRef}>
-        <div>
-          Order the medicines
-        </div>
-        <div>
-          Communicate with the pharmacist
-        </div>
-        <div>
-          Request the medicines not in stock or not available in Bahrain
-        </div>
-        <div>
-          Create a list of medicines
-        </div>
-        <button onClick={() => scrollToElement(formSectionRef)}>
-          Scroll to Form
-        </button>
+      <div class="service">
+    <img src="../public/images/order-now.png" alt="" />
+    <h3>Order the Medicines</h3>
+    <p>Easily order your medicines from the comfort of your home with a few simple clicks.</p>
+  </div>
+  <div class="service"> 
+  <img src="../public/images/talking.png" alt="" />
+    <h3>Communicate with the Pharmacist</h3>
+    <p>Get professional advice and assistance by directly communicating with our certified pharmacists.</p>
+  </div>
+  <div class="service"> 
+  <img src="../public/images/request.png" alt="" />
+    <h3>Request Medicines</h3>
+    <p>If the medicine you need is not available, request it, and we will do our best to source it for you.</p>
+  </div>
+  <div class="service">
+  <img src="../public/images/list.png" alt="" />
+    <h3>Create a List of Medicines</h3>
+    <p>Keep track of your medication by creating and managing a personalized list of medicines.</p>
+  </div>
       </section>
+
+      <section class="ourServices">
+  <div class="service">
+    <img src="../public/images/lm.png" alt="" />
+    <button>My Medicine</button>
+  </div>
+  <div class="service"> 
+  <img src="../public/images/om.PNG" alt="" />
+    <button>Request Medicine</button>
+  </div>
+  <div class="service"> 
+  <img src="../public/images/rd.png" alt="" />
+    <button>Contact the Pharmacist</button>
+  </div>
+</section>
+
     </>
   )
 }

@@ -60,5 +60,66 @@ body {
       margin-left: 2vh;
 }
 
+.ourServices {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  background-image: url('../public/images/background2.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  margin: 0;
+  padding: 40px;
+  border-radius: 10px;
+  color: rgb(0, 0, 0);
+}
+
+.service {
+  flex: 1 1 calc(25% - 20px);
+  background: #ffffff1a;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  transition: transform 0.3s;
+}
+
+.service img {
+  max-width: 100px;
+  margin-bottom: 20px;
+}
+
+.service h3 {
+  font-size: 1.7em;
+  margin-bottom: 10px;
+}
+
+.service p {
+  font-size: 1.2em;
+  margin-top: 0;
+}
+
+.service:hover {
+  transform: scale(1.05);
+}
+
+
+.service button {
+  background: linear-gradient(90deg, #c738d8, #6963e8);
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-size: 0.9em;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.service button:hover {
+  background: linear-gradient(90deg, #6963e8, #c738d8);
+}
+
+
+
 
 

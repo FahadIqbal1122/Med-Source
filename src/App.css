@@ -24,15 +24,15 @@ body {
   color: black;
 }
 
-.img1{
+.img1 {
   margin-top: 10vh;
   /* margin-left: 6vh; */
 }
 
-.img1 img{
+.img1 img {
   height: 80vh;
 }
-.main{
+.main {
   display: flex;
   justify-content: space-around;
 }
@@ -46,18 +46,18 @@ body {
   font-size: 4vh;
   font-family: 'Roboto', sans-serif;
 }
-.scroll button{
+.scroll button {
   background: linear-gradient(to right, #a18cd1, #fbc2eb);
-      border: none;
-      border-radius: 20px;
-      color: white;
-      padding: 15px 30px;
-      font-size: 16px;
-      cursor: pointer;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      transition: background 0.3s ease;
-      margin-left: 2vh;
+  border: none;
+  border-radius: 20px;
+  color: white;
+  padding: 15px 30px;
+  font-size: 16px;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: background 0.3s ease;
+  margin-left: 2vh;
 }
 
 .ourServices {
@@ -86,7 +86,6 @@ body {
   margin-bottom: 20px;
   background-color: #000000;
   border-radius: 10%;
-
 }
 
 .service h3 {
@@ -107,7 +106,7 @@ body {
   background-image: url('../public/images/background2.png');
   background-repeat: no-repeat;
   background-size: cover;
-  background-position:  top;
+  background-position: top;
   margin: 0;
   padding: 40px;
   color: white;
@@ -121,7 +120,7 @@ body {
   text-align: center;
   transition: transform 0.3s;
   cursor: pointer;
-  border: solid #DDB0FB;
+  border: solid #ddb0fb;
 }
 
 .service2:hover {
@@ -148,8 +147,6 @@ body {
   background: linear-gradient(90deg, #6963e8, #c738d8);
 }
 
-
-
 .Category-container {
   display: flex;
   justify-content: space-evenly;
@@ -168,4 +165,3 @@ body {
   text-align: center;
   font-size: 10vh;
 }
-

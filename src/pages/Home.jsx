@@ -21,11 +21,11 @@ const Home = () => {
           </div>
 
           <div className='intro'>
-            <p>The most suitable place to receive health care and obtain
-              medicines from inside and outside the country</p>
+            <p>The most suitable place to receive <br/>health care and obtain
+              medicines <br/>from inside and outside the country</p>
           </div>
 
-          <div className='services'>
+          <div className='scroll'>
             <button onClick={() => scrollToElement(renderCountSectionRef)}>
               Our Services
             </button>

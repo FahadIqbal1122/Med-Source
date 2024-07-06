@@ -5,6 +5,7 @@ const Home = () => {
     <>
       <div>
         <div></div>
+        <img className="img1" src="../public/images/doctor.png" alt="" />
       </div>
     </>
   )

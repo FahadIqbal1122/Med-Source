@@ -9,13 +9,18 @@ const Categories = () => {
 
   return (
     <>
-      {' '}
-      <h1>Categories</h1>
+      <section>
+        <div>
+          <h1>Categories</h1>
+          <div className="pro">
+            <a onClick={() => handleSubmit('AllProduct')}>All Product</a>
+          </div>
+        </div>
+      </section>
       <div className="Category-container">
         <div className="Category-container1">
           <section>
             <button onClick={() => handleSubmit('vitamins')}>
-              {' '}
               <img width={500} src="../public/images/Vitamins.png" />
             </button>
           </section>

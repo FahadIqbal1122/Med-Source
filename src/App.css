@@ -60,7 +60,7 @@ body {
       margin-left: 2vh;
 }
 
-.ourServices {
+/* .ourServices {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
@@ -101,21 +101,89 @@ body {
 
 .service:hover {
   transform: scale(1.05);
+} */
+
+.ourServices {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  background: #8e44ad;
+  padding: 40px;
+  border-radius: 10px;
+  color: white;
 }
 
+.service {
+  flex: 1 1 calc(25% - 20px);
+  background: #ffffff1a;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  transition: transform 0.3s;
+}
 
-.service button {
-  background: linear-gradient(90deg, #c738d8, #6963e8);
+.service img {
+  max-width: 100px;
+  margin-bottom: 20px;
+}
+
+.service h3 {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+.service p {
+  font-size: 0.9em;
+  margin-top: 0;
+}
+
+/* .service:hover {
+  transform: scale(1.05);
+} */
+
+
+.ourServices2 {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  background: #8e44ad;
+  padding: 40px;
+  border-radius: 10px;
+  color: white;
+  border-top: solid ;
+}
+
+.service2 {
+  flex: 1 1 calc(25% - 20px);
+  background: #ffffff1a;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  transition: transform 0.3s;
+  cursor: pointer;
+}
+
+.service2:hover {
+  transform: scale(1.05);
+}
+
+.service2 img {
+  max-width: 30vh;
+  margin-bottom: 20px;
+}
+
+.service2 button {
+  background: linear-gradient(to right, #a18cd1, #fbc2eb);
   border: none;
   color: white;
   padding: 10px 20px;
   border-radius: 20px;
-  font-size: 0.9em;
+  font-size: 1.5em;
   cursor: pointer;
   transition: background 0.3s;
 }
 
-.service button:hover {
+.service2 button:hover {
   background: linear-gradient(90deg, #6963e8, #c738d8);
 }
 

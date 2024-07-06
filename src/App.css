@@ -2,7 +2,11 @@ body {
   background-image: url('../public/images/home.jpeg');
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
+  height: 100vh;
+  margin: 0;
 }
+
 .nav-cont {
   height: 10vh;
   font-size: xx-large;
@@ -16,4 +20,17 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  text-decoration: none;
+  color: black;
+}
+
+.img1{
+  height: 70vh;
+  margin-top: 20vh;
+  margin-left: 10vh;
+}
+
+.here{
+  margin-left: 120vh;
+  margin-bottom: 200vh;
 }

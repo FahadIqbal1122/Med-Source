@@ -1,19 +1,18 @@
 import React, { useState } from 'react'
-
 const RequestMed = () => {
   const [patientName, setPatientName] = useState('')
-  const [medicalHistory, setMedicalHistory] = useState('')
+  const [MedicineName, setMedicineName] = useState('')
   const [requestDetails, setRequestDetails] = useState('')
 
   const handleSubmit = (e) => {
     e.preventDefault()
     console.log('Form submitted with:', {
       patientName,
-      medicalHistory,
+      MedicineName,
       requestDetails
     })
     setPatientName('')
-    setMedicalHistory('')
+    setMedicineName('')
     setRequestDetails('')
   }
 
@@ -33,11 +32,11 @@ const RequestMed = () => {
             />
           </div>
           <div>
-            <label htmlFor="medicalHistory">Medical History:</label>
+            <label htmlFor="MedicineName">Medicine Name:</label>
             <textarea
-              id="medicalHistory"
-              value={medicalHistory}
-              onChange={(e) => setMedicalHistory(e.target.value)}
+              id="MedicineName"
+              value={MedicineName}
+              onChange={(e) => setMedicineName(e.target.value)}
               required
             />
           </div>

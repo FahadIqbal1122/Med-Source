@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom'
 
 const Nav = () => {
-  const [isDropdownVisible, setIsDropdownVisible] = useState(false);
+  // const [isDropdownVisible, setIsDropdownVisible] = useState(false);
 
-  const handleDropdownToggle = () => {
-    setIsDropdownVisible(!isDropdownVisible);
-  }
+  // const handleDropdownToggle = () => {
+  //   setIsDropdownVisible(!isDropdownVisible);
+  // }
   return (
     <header>
       <div>
@@ -15,14 +15,12 @@ const Nav = () => {
             <div className="nav">
               <NavLink to="/">Home</NavLink>
               <div className="dropdown">
-              <NavLink to="/Products" onClick={handleDropdownToggle}>
+              <NavLink to="/Products" className="dropdown-link">
               Products
                 </NavLink>
-                {isDropdownVisible && (
                   <div className="dropdown-menu">
                     <NavLink to="/Categories">Categories</NavLink>
                   </div>
-                )}
               </div>
               <NavLink to="/Offers">Offers</NavLink>
               <NavLink to="/Brands">Brands</NavLink>

@@ -275,7 +275,13 @@ body {
   position: relative;
 }
 
+.dropdown-link:hover + .dropdown-menu,
+.dropdown-menu:hover {
+  display: block;
+}
+
 .dropdown-menu {
+  display: none;
   position: absolute;
   top: 100%;
   left: 0;

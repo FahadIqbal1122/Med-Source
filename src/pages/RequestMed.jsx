@@ -18,10 +18,10 @@ const RequestMed = () => {
 
   return (
     <>
-      <div>
+      <div className="request-med">
         <h2>Request Medical Information</h2>
         <form onSubmit={handleSubmit}>
-          <div>
+          <div className="form-group">
             <label htmlFor="patientName">Patient Name:</label>
             <input
               type="text"
@@ -31,7 +31,7 @@ const RequestMed = () => {
               required
             />
           </div>
-          <div>
+          <div className="form-group"> 
             <label htmlFor="MedicineName">Medicine Name:</label>
             <textarea
               id="MedicineName"
@@ -40,7 +40,7 @@ const RequestMed = () => {
               required
             />
           </div>
-          <div>
+          <div className="form-group">
             <label htmlFor="requestDetails">Request Details:</label>
             <textarea
               id="requestDetails"
@@ -49,7 +49,7 @@ const RequestMed = () => {
               required
             />
           </div>
-          <button type="submit">Submit Request</button>
+          <button type="submit" className="submit-button">Submit Request</button>
         </form>
       </div>
     </>

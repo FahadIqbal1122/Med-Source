@@ -33,7 +33,7 @@ const RequestMed = () => {
           </div>
           <div className="form-group"> 
             <label htmlFor="MedicineName">Medicine Name:</label>
-            <textarea
+            <input
               id="MedicineName"
               value={MedicineName}
               onChange={(e) => setMedicineName(e.target.value)}

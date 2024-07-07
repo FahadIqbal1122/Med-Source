@@ -8,6 +8,12 @@ import Brands from './components/Brands'
 import RequestMed from './pages/RequestMed'
 import MyMedicines from './pages/MyMedicines'
 import Contact from './pages/Contact'
+import CartButton from './components/CartButton'
+import Category1 from './pages/Category1'
+import Category2 from './pages/Category2'
+import Category3 from './pages/Category3'
+
+
 const App = () => {
   return (
     <div>
@@ -19,12 +25,14 @@ const App = () => {
           <Routes>
             <Route path="/" element={<Home />} exact />
             <Route path="/Categories" element={<Categories />} exact />
+            <Route path="/Categories/Category1" element={<Category1 />} exact />
             <Route path="/Offers" element={<Offers />} exact />
             <Route path="/Brands" element={<Brands />} exact />
             <Route path="/RequestMed" element={<RequestMed />} exact />
             <Route path="/MyMedicines" element={<MyMedicines />} exact />
             <Route path="/Contact" element={<Contact />} exact />
           </Routes>
+          <CartButton/>
         </main>
       </body>
     </div>

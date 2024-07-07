@@ -22,7 +22,7 @@ const Home = () => {
     <>
       <section className="main" ref={formSectionRef}>
         <div className="img1">
-          <img src="../public/images/doctor.png" alt="drs" />
+          <img src="../public/images/drr.png" alt="drs" />
         </div>
 
         <div className="about">
@@ -52,10 +52,13 @@ const Home = () => {
       <section className="ourServices" ref={renderCountSectionRef}>
         <div className="service">
           <img src="../public/images/order-now.png" alt="Order the Medicines" />
-          <h3>Order the Medicines</h3>
+          <h3>Order Medicines Online</h3>
           <p>
-            Easily order your medicines from the comfort of your home with a few
-            simple clicks.
+          Experience the convenience of ordering your medicines from the comfort of your home. 
+          With just a few simple clicks, you can easily place your order and have it delivered 
+          to your doorstep. Our service ensures a hassle-free process, allowing you to manage 
+          your health needs effortlessly and efficiently.
+           Enjoy the benefits of a seamless and secure online pharmacy experience.
           </p>
         </div>
         <div className="service">
@@ -65,8 +68,11 @@ const Home = () => {
           />
           <h3>Communicate with the Pharmacist</h3>
           <p>
-            Get professional advice and assistance by directly communicating
-            with our certified pharmacists.
+          Receive professional advice and assistance directly from our certified pharmacists.
+           Whether you have questions about your medications, need guidance on dosage, 
+           or seek recommendations, our pharmacists are here to help. Enjoy the convenience 
+           of expert support from the comfort of your home, 
+          ensuring your health needs are met with personalized and reliable care.
           </p>
         </div>
         <div className="service">

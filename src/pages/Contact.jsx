@@ -19,10 +19,10 @@ const Contact = () => {
 
   return (
     <>
-      <div>
+      <div className="contact-form">
         <h2>Patient Information</h2>
         <form onSubmit={handleSubmit}>
-          <div>
+          <div className="form-group">
             <label htmlFor="patientName">Patient Name:</label>
             <input
               type="text"
@@ -32,16 +32,16 @@ const Contact = () => {
               required
             />
           </div>
-          <div>
-            <label htmlFor="PatientIDCadr">Patient ID Cadr:</label>
-            <textarea
+          <div className="form-group">
+            <label htmlFor="PatientIDCadr">Patient CPR</label>
+            <input
               id="PatientIDCadr"
               value={PatientIDCadr}
               onChange={(e) => setPatientIDCadr(e.target.value)}
               required
             />
           </div>
-          <div>
+          <div className="form-group">
             <label htmlFor="YourMassege">Your Massege:</label>
             <textarea
               id="YourMassege"
@@ -50,7 +50,7 @@ const Contact = () => {
               required
             />
           </div>
-          <button type="submit">Submit Request</button>
+          <button type="submit" className="submit-button">Submit Request</button>
         </form>
       </div>
     </>

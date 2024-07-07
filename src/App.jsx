@@ -8,6 +8,9 @@ import Brands from './components/Brands'
 import RequestMed from './pages/RequestMed'
 import MyMedicines from './pages/MyMedicines'
 import Contact from './pages/Contact'
+import CartButton from './components/CartButton'
+
+
 const App = () => {
   return (
     <div>
@@ -25,6 +28,7 @@ const App = () => {
             <Route path="/MyMedicines" element={<MyMedicines />} exact />
             <Route path="/Contact" element={<Contact />} exact />
           </Routes>
+          <CartButton/>
         </main>
       </body>
     </div>

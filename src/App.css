@@ -96,7 +96,13 @@ body {
 
 .service p {
   font-size: 1.2em;
+  line-height: 1.6;
   margin-top: 0;
+  margin-bottom: 0;
+  text-align: justify;
+  padding: 0 10px;
+  max-width: 500px;
+  margin: 0 auto;
 }
 
 
@@ -295,6 +301,7 @@ body {
   padding: 10px;
   text-decoration: none;
   color: black;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 .dropdown-menu a:hover {

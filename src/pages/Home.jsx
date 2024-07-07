@@ -22,7 +22,7 @@ const Home = () => {
     <>
       <section className="main" ref={formSectionRef}>
         <div className="img1">
-          <img src="../public/images/doctor.png" alt="drs" />
+          <img src="../public/images/drr.png" alt="drs" />
         </div>
 
         <div className="about">

@@ -1,5 +1,5 @@
 body {
-  background-image: url('../public/images/home.jpeg');
+  background-color: #F0F1FF;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -64,7 +64,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
-  background-image: url('../public/images/back.png');
+  background-color: #F0F1FF;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -104,7 +104,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
-  background-image: url('../public/images/background2.png');
+  background-color: #F0F1FF;
   background-repeat: no-repeat;
   background-size: cover;
   margin: 0;
@@ -266,5 +266,33 @@ body {
 }
 
 
+.nav {
+  display: flex;
+  gap: 20px;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: white;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  color: black;
+}
+
+.dropdown-menu a:hover {
+  background-color: #f1f1f1;
+}
 
 

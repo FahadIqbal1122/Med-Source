@@ -1,20 +1,30 @@
-import React, { useState } from 'react'
+import React, { useState } from "react"
+import axios from "axios"
 
 const Contact = () => {
-  const [patientName, setPatientName] = useState('')
-  const [PatientIDCadr, setPatientIDCadr] = useState('')
-  const [YourMassege, setYourMassege] = useState('')
+  const [patientName, setPatientName] = useState("")
+  const [PatientIDCadr, setPatientIDCadr] = useState("")
+  const [YourMassege, setYourMassege] = useState("")
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    console.log('Form submitted with:', {
-      patientName,
-      PatientIDCadr,
-      YourMassege
-    })
-    setPatientName('')
-    setPatientIDCadr('')
-    setYourMassege('')
+    try {
+      const response = await axios.post("http://localhost:5000/messages", {
+        user_id: 2,
+        receiver_id: 4,
+        content: YourMassege,
+      })
+
+      console.log("Message sent successfully:", response.data)
+      setPatientName("")
+      setPatientIDCadr("")
+      setYourMessage("")
+    } catch (error) {
+      console.error(
+        "Error sending message:",
+        error.response?.data || error.message
+      )
+    }
   }
 
   return (
@@ -50,7 +60,9 @@ const Contact = () => {
               required
             />
           </div>
-          <button type="submit" className="submit-button">Submit Request</button>
+          <button type="submit" className="submit-button">
+            Submit Request
+          </button>
         </form>
       </div>
     </>

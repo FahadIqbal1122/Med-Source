@@ -1,10 +1,16 @@
 import axios from "axios"
 import React, { useEffect, useState } from "react"
+import { useNavigate } from "react-router-dom"
 import "../App.css"
 import ProductCard from "../components/ProductCard"
 
 const Products = () => {
   const [products, setProducts] = useState([])
+  const navigate = useNavigate()
+
+  const handleSubmit = async (productId) => {
+    navigate(`/products/details/${productId}`)
+  }
 
   useEffect(() => {
     const getAllProducts = async () => {
@@ -17,7 +23,7 @@ const Products = () => {
   console.log(products)
 
   return (
-    <div className="products-page-container">
+    <div className="products-page-container" >
       {products.map((product) => (
         <ProductCard
           key={product.id}
@@ -25,6 +31,7 @@ const Products = () => {
           name={product.name}
           price={product.price}
           img={product.image}
+          onClick={() => handleSubmit(product.id)}
         />
       ))}
     </div>

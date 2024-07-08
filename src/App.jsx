@@ -14,7 +14,8 @@ import Products from "./pages/products"
 import Register from "./pages/Register"
 import { CheckSession } from "./services/Auth"
 import SignIn from "./pages/SignIn"
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect } from 'react';
+import Details from "./pages/Details"
 import axios from "axios"
 
 const App = () => {
@@ -77,6 +78,7 @@ const App = () => {
             <Route path="/Products" element={<Products user={user} />} exact />
             <Route path="/register" element={<Register />} exact />
             <Route path="/signin" element={<SignIn setUser={setUser} />} />
+            <Route path="/Products/details/:productId" element={<Details />} exact />
           </Routes>
           <CartButton />
         </main>

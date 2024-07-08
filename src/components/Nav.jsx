@@ -19,7 +19,6 @@ const Nav = ({ user, handleLogOut }) => {
                   <NavLink to="/Categories">Categories</NavLink>
                 </div>
               </div>
-              <NavLink to="/Offers">Offers</NavLink>
               <NavLink to="/Brands">Brands</NavLink>
               {!isLoggedIn && <NavLink to="/register">Register</NavLink>}
               {!isLoggedIn && <NavLink to="/signin">Login</NavLink>}

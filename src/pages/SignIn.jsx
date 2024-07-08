@@ -44,7 +44,7 @@ const SignIn = (props) => {
             />
           </div>
           <button disabled={!formValues.email || !formValues.password}>
-            Sign In
+            Login
           </button>
         </form>
       </div>

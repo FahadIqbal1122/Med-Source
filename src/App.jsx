@@ -10,9 +10,8 @@ import MyMedicines from "./pages/MyMedicines"
 import Contact from "./pages/Contact"
 import CartButton from "./components/CartButton"
 import Category1 from "./pages/Category1"
-import Category2 from "./pages/Category2"
-import Category3 from "./pages/Category3"
 import Products from "./pages/products"
+import Register from "./pages/Register"
 
 const App = () => {
   return (

@@ -3,15 +3,15 @@ import { Routes, Route } from 'react-router-dom'
 import Home from './pages/Home'
 import Nav from './components/Nav'
 import Categories from './components/Categories'
-import Offers from './components/Offers'
+
 import Brands from './components/Brands'
 import RequestMed from './pages/RequestMed'
 import MyMedicines from './pages/MyMedicines'
 import Contact from './pages/Contact'
 import CartButton from './components/CartButton'
-import Category1 from './pages/Category1'
 import Products from './pages/products'
 import Register from './pages/Register'
+import RequestedProducts from './components/RequestedProducts'
 import { CheckSession } from './services/Auth'
 import SignIn from './pages/SignIn'
 import React, { useState, useEffect } from 'react'
@@ -61,12 +61,16 @@ const App = () => {
           <Routes>
             <Route path="/" element={<Home user={user} />} exact />
             <Route path="/Categories" element={<Categories />} exact />
-            <Route path="/Categories/Category1" element={<Category1 />} exact />
-            <Route path="/Offers" element={<Offers user={user} />} exact />
+
             <Route path="/Brands" element={<Brands user={user} />} exact />
             <Route
               path="/RequestMed"
               element={<RequestMed user={user} />}
+              exact
+            />
+            <Route
+              path="/RequestedProducts"
+              element={<RequestedProducts user={user} />}
               exact
             />
             <Route
@@ -77,6 +81,7 @@ const App = () => {
             <Route path="/Contact" element={<Contact user={user} />} exact />
             <Route path="/Products" element={<Products user={user} />} exact />
             <Route path="/register" element={<Register />} exact />
+
             <Route path="/signin" element={<SignIn setUser={setUser} />} />
             <Route
               path="/Products/details/:productId"

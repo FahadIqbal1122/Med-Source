@@ -101,19 +101,31 @@ const Home = () => {
       <section className="ourServices2" ref={ourServices2Ref}>
         <div className="service2">
           <img src="../public/images/lm.png" alt="My Medicine" />
-          <button onClick={() => handleSubmit('/MyMedicines')}>
+          <button
+            onClick={() => {
+              navigate('/MyMedicines')
+            }}
+          >
             My Medicine
           </button>
         </div>
         <div className="service2">
           <img src="../public/images/om.png" alt="Request Medicine" />
-          <button onClick={() => handleSubmit('RequestMed')}>
+          <button
+            onClick={() => {
+              navigate('/RequestMed')
+            }}
+          >
             Request Medicine
           </button>
         </div>
         <div className="service2">
           <img src="../public/images/cp.png" alt="Contact the Pharmacist" />
-          <button onClick={() => handleSubmit('Contact')}>
+          <button
+            onClick={() => {
+              navigate('/Contact')
+            }}
+          >
             Contact the Pharmacist
           </button>
         </div>

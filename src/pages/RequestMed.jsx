@@ -1,11 +1,12 @@
 import axios from 'axios'
 import React, { useState, useEffect } from 'react'
-const RequestMed = () => {
+import { useNavigate } from 'react-router-dom'
+const RequestMed = ({ user }) => {
   const [patientName, setPatientName] = useState('')
   const [medicines, setMedicines] = useState([])
   const [selectedMedicine, setSelectedMedicine] = useState('')
   const [requestDetails, setRequestDetails] = useState('')
-
+  const navigate = useNavigate()
   const handleSubmit = async (e) => {
     e.preventDefault()
     console.log('Form submitted with:', {
@@ -14,7 +15,7 @@ const RequestMed = () => {
       requestDetails
     })
     const sent = await axios.post(`http://localhost:5000/request`, {
-      user_id: patientName,
+      user_id: user,
       product_ids: selectedMedicine
     })
     console.log(sent)
@@ -26,16 +27,24 @@ const RequestMed = () => {
     const get_products = async () => {
       const response = await axios.get(`http://localhost:5000/products`)
       const availableMedicines = response.data.filter(
-        (medicine) => !medicine.availability
+        (medicine) => !medicine.available
       )
       console.log(availableMedicines)
       setMedicines(availableMedicines)
     }
     get_products()
+    console.log(user)
   }, [])
   console.log(selectedMedicine)
   return (
     <div className="request-med">
+      <button
+        onClick={() => {
+          navigate('/RequestedProducts')
+        }}
+      >
+        Your Requested products
+      </button>
       <h2>Request Medical Information</h2>
       <form onSubmit={handleSubmit}>
         <div className="form-group">

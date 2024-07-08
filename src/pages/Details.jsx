@@ -1,14 +1,18 @@
-import React from "react"
+
 import axios from "axios"
 import React, { useEffect, useState } from "react"
+import { useParams } from "react-router-dom"
 import "../App.css"
-import cardDetails from "../components/cardDetails"
 
 const Details = () => {
+
+    const {productId}=useParams()
+
     const [products, setProducts] = useState([])
     useEffect(() => {
         const getAllProducts = async () => {
-          const res = await axios.get("http://localhost:5000/products")
+          const res = await axios.get(`http://localhost:5000/products/${productId}`)
+          console.log(res)
           setProducts(res.data)
         }
     
@@ -16,16 +20,12 @@ const Details = () => {
       }, [])
     return (
         <div className="productsdetails-page-container" >
-      {products.map((product) => (
-        <cardDetails
-          key={product.id}
-          id={product.id}
-          name={product.name}
-          description= {product.description}
-          price={product.price}
-          img={product.image}
-        />
-      ))}
+        <img src={products.image} alt="proimg" />
+        <h2>{products.brand}</h2>
+        <h3>{products.category}</h3>
+        <p>{products.description}</p>
+        <p>{products.price}</p>
+        <button>Add to cart</button>
     </div>
     )
 }

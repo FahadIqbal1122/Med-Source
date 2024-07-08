@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react"
 import "../App.css"
 
 const Details = (props) => {
+    const [products, setProducts] = useState([])
     useEffect(() => {
         const getAllProducts = async () => {
           const res = await axios.get("http://localhost:5000/products")
@@ -13,15 +14,17 @@ const Details = (props) => {
         getAllProducts()
       }, [])
     return (
-        <div key={props.id} className="product-card" >
-            <div className="product-img">
-                <img src={props.img} alt="product image" />
-            </div>
-            <div className="product-card-info">
-                <h3>{props.name}</h3>
-                <p>{props.price}</p>
-            </div>
-        </div>
+        <div className="products-page-container" >
+      {products.map((product) => (
+        <ProductCard
+          key={product.id}
+          id={product.id}
+          name={product.name}
+          price={product.price}
+          img={product.image}
+        />
+      ))}
+    </div>
     )
 }
 

@@ -1,15 +1,16 @@
-import axios from "axios"
-import React, { useEffect, useState } from "react"
-import "../App.css"
-import ProductCard from "../components/ProductCard"
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
+import '../App.css'
+import ProductCard from '../components/ProductCard'
 
 const Products = () => {
   const [products, setProducts] = useState([])
 
   useEffect(() => {
     const getAllProducts = async () => {
-      const res = await axios.get("http://localhost:5000/products")
+      const res = await axios.get('http://localhost:5000/products')
       setProducts(res.data)
+      console.log(res)
     }
 
     getAllProducts()

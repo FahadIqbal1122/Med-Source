@@ -12,6 +12,8 @@ import CartButton from "./components/CartButton"
 import Category1 from "./pages/Category1"
 import Products from "./pages/products"
 import Register from "./pages/Register"
+import Feed from "./pages/Feed"
+import { CheckSession } from "./services/Auth"
 
 const App = () => {
   return (
@@ -31,7 +33,8 @@ const App = () => {
             <Route path="/MyMedicines" element={<MyMedicines />} exact />
             <Route path="/Contact" element={<Contact />} exact />
             <Route path="/Products" element={<Products />} exact />
-            <Route path="/register" element={<Feed user={user} />} exact />
+            <Route path="/register" element={<Register />} exact />
+            <Route path="/feed" element={<Feed user={user} />} exact />
           </Routes>
           <CartButton />
         </main>

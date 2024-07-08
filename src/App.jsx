@@ -58,7 +58,7 @@ const App = () => {
             <Route path="/register" element={<Register />} exact />
             <Route path="/feed" element={<Feed user={user} />} exact />
             <Route path="/signin" element={<SignIn setUser={setUser} />} />
-            <Route path="/details" element={<Details />} exact />
+            <Route path="/Products/details/:productId" element={<Details />} exact />
           </Routes>
           <CartButton />
         </main>

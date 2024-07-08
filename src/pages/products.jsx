@@ -9,7 +9,7 @@ const Products = () => {
   const navigate = useNavigate()
 
   const handleSubmit = async (productId) => {
-    navigate(`/products/${productId}`)
+    navigate(`/products/details/${productId}`)
   }
 
   useEffect(() => {
@@ -23,7 +23,7 @@ const Products = () => {
   console.log(products)
 
   return (
-    <div className="products-page-container"  onClick={() => handleSubmit('Details')}>
+    <div className="products-page-container" >
       {products.map((product) => (
         <ProductCard
           key={product.id}
@@ -31,7 +31,7 @@ const Products = () => {
           name={product.name}
           price={product.price}
           img={product.image}
-          onClick={() => handleSubmit(product.image)}
+          onClick={() => handleSubmit(product.id)}
         />
       ))}
     </div>

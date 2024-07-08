@@ -1,17 +1,36 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import axios from "axios"
 
-const Contact = () => {
+const Contact = ({ user }) => {
   const [patientName, setPatientName] = useState("")
   const [PatientIDCadr, setPatientIDCadr] = useState("")
   const [YourMassege, setYourMassege] = useState("")
+  const [recievers, setRecievers] = useState([])
+  const [selectedReciver, setSelectedReciver] = useState("")
+
+  useEffect(() => {
+    const fetchRecivers = async () => {
+      try {
+        const response = await axios.get("http://localhost:5000/users")
+        const filteredUsers = response.data.filter(
+          (user) => user.id !== user.logged_user
+        )
+        console.log(filteredUsers)
+        setRecievers(filteredUsers)
+      } catch (error) {
+        console.error("Error fetching users:", error)
+      }
+    }
+
+    fetchRecivers()
+  }, [])
 
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
       const response = await axios.post("http://localhost:5000/messages", {
-        user_id: 2,
-        receiver_id: 4,
+        user_id: user.logged_user,
+        receiver_id: selectedReciver,
         content: YourMassege,
       })
 
@@ -50,6 +69,23 @@ const Contact = () => {
               onChange={(e) => setPatientIDCadr(e.target.value)}
               required
             />
+          </div>
+          <div className="form-group">
+            <label htmlFor="receiverUser">Select Receiver User:</label>
+            <select
+              id="receiverUser"
+              value={selectedReciver}
+              onChange={(e) => {
+                setSelectedReciver(e.target.value)
+              }}
+              required
+            >
+              {recievers.map((reciever) => (
+                <option key={reciever.id} value={reciever.id}>
+                  {reciever.name}
+                </option>
+              ))}
+            </select>
           </div>
           <div className="form-group">
             <label htmlFor="YourMassege">Your Massege:</label>

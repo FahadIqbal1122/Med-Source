@@ -1,19 +1,19 @@
-import './App.css'
-import { Routes, Route } from 'react-router-dom'
-import Home from './pages/Home'
-import Nav from './components/Nav'
-import Categories from './components/Categories'
-import Brands from './components/Brands'
-import RequestMed from './pages/RequestMed'
-import MyMedicines from './pages/MyMedicines'
-import Contact from './pages/Contact'
-import CartButton from './components/CartButton'
-import Products from './pages/products'
-import Register from './pages/Register'
-import Feed from './pages/Feed'
-import { CheckSession } from './services/Auth'
-import SignIn from './pages/SignIn'
-import React, { useState, useEffect } from 'react'
+import "./App.css"
+import { Routes, Route } from "react-router-dom"
+import Home from "./pages/Home"
+import Nav from "./components/Nav"
+import Categories from "./components/Categories"
+import Brands from "./components/Brands"
+import RequestMed from "./pages/RequestMed"
+import MyMedicines from "./pages/MyMedicines"
+import Contact from "./pages/Contact"
+import CartButton from "./components/CartButton"
+import Products from "./pages/products"
+import Register from "./pages/Register"
+import SignIn from "./pages/SignIn"
+import Details from "./pages/Details"
+import React, { useState, useEffect } from "react"
+import axios from "axios"
 
 const App = () => {
   const [user, setUser] = useState(null)
@@ -33,20 +33,19 @@ const App = () => {
         })
         console.log(response)
         if (response) {
-          setUser(response.data.logged_user)
+          setUser(response.data)
         }
       } catch (error) {
         console.error(`Error fetching user ${error}`)
       }
     }
-    console.log(`useEffect`)
     const token = localStorage.getItem("token")
     if (token) {
       console.log(`token exists: ${token}`)
       fetchUser(token)
       console.log(`user: ${user}`)
     }
-  }, [user])
+  }, [])
 
   return (
     <div>
@@ -58,8 +57,7 @@ const App = () => {
           <Routes>
             <Route path="/" element={<Home user={user} />} exact />
             <Route path="/Categories" element={<Categories />} exact />
-            <Route path="/Categories/Category1" element={<Category1 />} exact />
-            <Route path="/Offers" element={<Offers user={user} />} exact />
+            {/* <Route path="/Offers" element={<Offers user={user} />} exact /> */}
             <Route path="/Brands" element={<Brands user={user} />} exact />
             <Route
               path="/RequestMed"
@@ -75,7 +73,11 @@ const App = () => {
             <Route path="/Products" element={<Products user={user} />} exact />
             <Route path="/register" element={<Register />} exact />
             <Route path="/signin" element={<SignIn setUser={setUser} />} />
-            <Route path="/Products/details/:productId" element={<Details />} exact />
+            <Route
+              path="/Products/details/:productId"
+              element={<Details setUser={setUser} />}
+              exact
+            />
           </Routes>
           <CartButton />
         </main>

@@ -54,11 +54,12 @@ const Home = () => {
           <img src="../public/images/order-now.png" alt="Order the Medicines" />
           <h3>Order Medicines Online</h3>
           <p>
-          Experience the convenience of ordering your medicines from the comfort of your home. 
-          With just a few simple clicks, you can easily place your order and have it delivered 
-          to your doorstep. Our service ensures a hassle-free process, allowing you to manage 
-          your health needs effortlessly and efficiently.
-           Enjoy the benefits of a seamless and secure online pharmacy experience.
+            Experience the convenience of ordering your medicines from the
+            comfort of your home. With just a few simple clicks, you can easily
+            place your order and have it delivered to your doorstep. Our service
+            ensures a hassle-free process, allowing you to manage your health
+            needs effortlessly and efficiently. Enjoy the benefits of a seamless
+            and secure online pharmacy experience.
           </p>
         </div>
         <div className="service">
@@ -68,11 +69,12 @@ const Home = () => {
           />
           <h3>Communicate with the Pharmacist</h3>
           <p>
-          Receive professional advice and assistance directly from our certified pharmacists.
-           Whether you have questions about your medications, need guidance on dosage, 
-           or seek recommendations, our pharmacists are here to help. Enjoy the convenience 
-           of expert support from the comfort of your home, 
-          ensuring your health needs are met with personalized and reliable care.
+            Receive professional advice and assistance directly from our
+            certified pharmacists. Whether you have questions about your
+            medications, need guidance on dosage, or seek recommendations, our
+            pharmacists are here to help. Enjoy the convenience of expert
+            support from the comfort of your home, ensuring your health needs
+            are met with personalized and reliable care.
           </p>
         </div>
         <div className="service">
@@ -99,19 +101,31 @@ const Home = () => {
       <section className="ourServices2" ref={ourServices2Ref}>
         <div className="service2">
           <img src="../public/images/lm.png" alt="My Medicine" />
-          <button onClick={() => handleSubmit('MyMedicines')}>
+          <button
+            onClick={() => {
+              navigate('/MyMedicines')
+            }}
+          >
             My Medicine
           </button>
         </div>
         <div className="service2">
           <img src="../public/images/om.png" alt="Request Medicine" />
-          <button onClick={() => handleSubmit('RequestMed')}>
+          <button
+            onClick={() => {
+              navigate('/RequestMed')
+            }}
+          >
             Request Medicine
           </button>
         </div>
         <div className="service2">
           <img src="../public/images/cp.png" alt="Contact the Pharmacist" />
-          <button onClick={() => handleSubmit('Contact')}>
+          <button
+            onClick={() => {
+              navigate('/Contact')
+            }}
+          >
             Contact the Pharmacist
           </button>
         </div>

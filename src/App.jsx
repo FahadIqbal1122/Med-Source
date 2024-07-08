@@ -26,10 +26,10 @@ const App = () => {
   useEffect(() => {
     const fetchUser = async (token) => {
       try {
-        const response = await axios.get("http://localhost:5000/profile", {
+        const response = await axios.get('http://localhost:5000/profile', {
           headers: {
-            Authorization: `Bearer ${token}`,
-          },
+            Authorization: `Bearer ${token}`
+          }
         })
         console.log(response)
         if (response) {
@@ -65,6 +65,11 @@ const App = () => {
               exact
             />
             <Route
+              path="/RequestedProducts"
+              element={<RequestedProducts user={user} />}
+              exact
+            />
+            <Route
               path="/MyMedicines"
               element={<MyMedicines user={user} />}
               exact
@@ -72,6 +77,7 @@ const App = () => {
             <Route path="/Contact" element={<Contact user={user} />} exact />
             <Route path="/Products" element={<Products user={user} />} exact />
             <Route path="/register" element={<Register />} exact />
+
             <Route path="/signin" element={<SignIn setUser={setUser} />} />
             <Route
               path="/Products/details/:productId"

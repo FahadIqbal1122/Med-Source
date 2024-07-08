@@ -1,13 +1,15 @@
 import axios from "axios"
 import React, { useEffect, useState } from "react"
+import { useNavigate } from "react-router-dom"
 import "../App.css"
 import ProductCard from "../components/ProductCard"
 
 const Products = () => {
   const [products, setProducts] = useState([])
+  const navigate = useNavigate()
 
-  const handleSubmit = async (Details) => {
-    navigate(`${Details}`)
+  const handleSubmit = async (productId) => {
+    navigate(`/products/${productId}`)
   }
 
   useEffect(() => {

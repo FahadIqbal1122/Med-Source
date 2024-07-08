@@ -2,21 +2,57 @@ import Brands_card from './BrandCard'
 import axios from 'axios'
 import { useState, useEffect } from 'react'
 const Brands = () => {
-  const [brands, setBrands] = useState([])
 
-  useEffect(() => {
-    const getBrands = async () => {
-      try {
-        let response = await axios.get('http://localhost:5000/products')
-        console.log(response)
-      } catch (err) {
-        console.error(`error in categories ${err}`)
-      }
-    }
-    getBrands()
-  }, [])
-
-  return <div></div>
+  return (
+    <>
+      <div className="brands">
+        <h2>Brands</h2>
+        <a href="#" className="all-products">All Products</a>
+        <div className="brands-grid">
+          <div className="inside-brands">
+            <img src="https://api.nasserpharmacy.com/images?file=/brands/loreal_1-285x123.5.png" alt="L'Oreal" />
+          </div>
+          <div className="inside-brands">
+            <img src="https://api.nasserpharmacy.com/images?file=/brands/Eucerin-285x123.5.png" alt="Eucerin" />
+          </div>
+          <div className="inside-brands">
+            <img src="https://api.nasserpharmacy.com/images?file=/brands/lytess_1-285x123.5.png" alt="Lytess" />
+          </div>
+          <div className="inside-brands">
+            <img src="https://api.nasserpharmacy.com/images?file=/brands/tommee_1-285x123.5.png" alt="Tommee" />
+          </div>
+          <div className="inside-brands">
+            <img src="https://api.nasserpharmacy.com/images?file=/brands/dr-organic_1-285x123.5.png" alt="Dr. Organic" />
+          </div>
+          <div className="inside-brands">
+            <img src="https://api.nasserpharmacy.com/images?file=/brands/fair-lovely-285x123.5.png" alt="Fair & Lovely" />
+          </div>
+          <div className="inside-brands">
+            <img src="https://api.nasserpharmacy.com/images?file=/brands/nan-285x123.5.png" alt="Nan" />
+          </div>
+          <div className="inside-brands">
+            <img src="https://api.nasserpharmacy.com/images?file=/brands/cerelac-285x123.5.png" alt="Cerelac" />
+          </div>
+          <div className="inside-brands">
+            <img src="https://api.nasserpharmacy.com/images?file=/brands/clarins-285x123.5.png" alt="Cerelac" />
+          </div>
+          <div className="inside-brands">
+            <img src="https://api.nasserpharmacy.com/images?file=/brands/kiss-285x123.5.png" alt="Cerelac" />
+          </div>
+          <div className="inside-brands">
+            <img src="" alt="Cerelac" />
+          </div>
+          <div className="inside-brands">
+            <img src="" alt="Cerelac" />
+          </div>
+          <div className="inside-brands">
+            <img src="" alt="Cerelac" />
+          </div>
+          
+        </div>
+      </div>
+    </>
+  )
 }
 
-export default Brands
+export default Brands;

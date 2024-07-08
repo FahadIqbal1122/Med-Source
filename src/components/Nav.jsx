@@ -25,6 +25,7 @@ const Nav = () => {
               <NavLink to="/Offers">Offers</NavLink>
               <NavLink to="/Brands">Brands</NavLink>
               <NavLink to="/register">Register</NavLink>
+              <NavLink to="/signin">Login</NavLink>
             </div>
           </div>
         </nav>

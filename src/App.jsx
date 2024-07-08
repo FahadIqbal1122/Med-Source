@@ -15,6 +15,7 @@ import Register from "./pages/Register"
 import Feed from "./pages/Feed"
 import { CheckSession } from "./services/Auth"
 import SignIn from "./pages/SignIn"
+import React, { useState, useEffect } from 'react';
 
 const App = () => {
   const [user, setUser] = useState(null)

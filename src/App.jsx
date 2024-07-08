@@ -3,17 +3,20 @@ import { Routes, Route } from 'react-router-dom'
 import Home from './pages/Home'
 import Nav from './components/Nav'
 import Categories from './components/Categories'
+import Offers from './components/Offers'
 import Brands from './components/Brands'
 import RequestMed from './pages/RequestMed'
 import MyMedicines from './pages/MyMedicines'
 import Contact from './pages/Contact'
 import CartButton from './components/CartButton'
+import Category1 from './pages/Category1'
 import Products from './pages/products'
 import Register from './pages/Register'
-import Feed from './pages/Feed'
 import { CheckSession } from './services/Auth'
 import SignIn from './pages/SignIn'
 import React, { useState, useEffect } from 'react'
+import Details from './pages/Details'
+import axios from 'axios'
 
 const App = () => {
   const [user, setUser] = useState(null)
@@ -26,10 +29,10 @@ const App = () => {
   useEffect(() => {
     const fetchUser = async (token) => {
       try {
-        const response = await axios.get("http://localhost:5000/profile", {
+        const response = await axios.get('http://localhost:5000/profile', {
           headers: {
-            Authorization: `Bearer ${token}`,
-          },
+            Authorization: `Bearer ${token}`
+          }
         })
         console.log(response)
         if (response) {
@@ -40,7 +43,7 @@ const App = () => {
       }
     }
     console.log(`useEffect`)
-    const token = localStorage.getItem("token")
+    const token = localStorage.getItem('token')
     if (token) {
       console.log(`token exists: ${token}`)
       fetchUser(token)
@@ -75,7 +78,11 @@ const App = () => {
             <Route path="/Products" element={<Products user={user} />} exact />
             <Route path="/register" element={<Register />} exact />
             <Route path="/signin" element={<SignIn setUser={setUser} />} />
-            <Route path="/Products/details/:productId" element={<Details />} exact />
+            <Route
+              path="/Products/details/:productId"
+              element={<Details />}
+              exact
+            />
           </Routes>
           <CartButton />
         </main>

@@ -1,4 +1,8 @@
+import Brands_card from './BrandCard'
+import axios from 'axios'
+import { useState, useEffect } from 'react'
 const Brands = () => {
+
   return (
     <>
       <div className="brands">

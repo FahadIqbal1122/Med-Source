@@ -2,11 +2,6 @@ import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom'
 
 const Nav = () => {
-  // const [isDropdownVisible, setIsDropdownVisible] = useState(false);
-
-  // const handleDropdownToggle = () => {
-  //   setIsDropdownVisible(!isDropdownVisible);
-  // }
   return (
     <header>
       <div>

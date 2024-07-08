@@ -19,22 +19,35 @@ const App = () => {
   const [user, setUser] = useState(null)
 
   const handleLogOut = () => {
-    //Reset all auth related state and clear localStorage
     setUser(null)
     localStorage.clear()
   }
 
-  const checkToken = async () => {
-    const user = await CheckSession()
-    setUser(user)
-  }
-
   useEffect(() => {
-    const token = localStorage.getItem('token')
-    if (token) {
-      checkToken()
+    const fetchUser = async (token) => {
+      try {
+        const response = await axios.get("http://localhost:5000/profile", {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        })
+        console.log(response)
+        if (response) {
+          setUser(response.data.logged_user)
+        }
+      } catch (error) {
+        console.error(`Error fetching user ${error}`)
+      }
     }
-  }, [])
+    console.log(`useEffect`)
+    const token = localStorage.getItem("token")
+    if (token) {
+      console.log(`token exists: ${token}`)
+      fetchUser(token)
+      console.log(`user: ${user}`)
+    }
+  }, [user])
+
   return (
     <div>
       <body>
@@ -43,16 +56,26 @@ const App = () => {
         </header>
         <main>
           <Routes>
-            <Route path="/" element={<Home />} exact />
+            <Route path="/" element={<Home user={user} />} exact />
             <Route path="/Categories" element={<Categories />} exact />
-            <Route path="/Brands" element={<Brands />} exact />
-            <Route path="/RequestMed" element={<RequestMed />} exact />
-            <Route path="/MyMedicines" element={<MyMedicines />} exact />
-            <Route path="/Contact" element={<Contact />} exact />
-            <Route path="/Products" element={<Products />} exact />
+            <Route path="/Categories/Category1" element={<Category1 />} exact />
+            <Route path="/Offers" element={<Offers user={user} />} exact />
+            <Route path="/Brands" element={<Brands user={user} />} exact />
+            <Route
+              path="/RequestMed"
+              element={<RequestMed user={user} />}
+              exact
+            />
+            <Route
+              path="/MyMedicines"
+              element={<MyMedicines user={user} />}
+              exact
+            />
+            <Route path="/Contact" element={<Contact user={user} />} exact />
+            <Route path="/Products" element={<Products user={user} />} exact />
             <Route path="/register" element={<Register />} exact />
-            <Route path="/feed" element={<Feed user={user} />} exact />
             <Route path="/signin" element={<SignIn setUser={setUser} />} />
+            <Route path="/Products/details/:productId" element={<Details />} exact />
           </Routes>
           <CartButton />
         </main>

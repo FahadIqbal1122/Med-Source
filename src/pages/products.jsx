@@ -6,6 +6,10 @@ import ProductCard from "../components/ProductCard"
 const Products = () => {
   const [products, setProducts] = useState([])
 
+  const handleSubmit = async (Details) => {
+    navigate(`${Details}`)
+  }
+
   useEffect(() => {
     const getAllProducts = async () => {
       const res = await axios.get("http://localhost:5000/products")
@@ -17,7 +21,7 @@ const Products = () => {
   console.log(products)
 
   return (
-    <div className="products-page-container">
+    <div className="products-page-container"  onClick={() => handleSubmit('Details')}>
       {products.map((product) => (
         <ProductCard
           key={product.id}
@@ -25,6 +29,7 @@ const Products = () => {
           name={product.name}
           price={product.price}
           img={product.image}
+          onClick={() => handleSubmit(product.image)}
         />
       ))}
     </div>

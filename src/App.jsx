@@ -16,6 +16,7 @@ import Feed from "./pages/Feed"
 import { CheckSession } from "./services/Auth"
 import SignIn from "./pages/SignIn"
 import React, { useState, useEffect } from 'react';
+import Details from "./pages/Details"
 
 const App = () => {
   const [user, setUser] = useState(null)
@@ -57,6 +58,7 @@ const App = () => {
             <Route path="/register" element={<Register />} exact />
             <Route path="/feed" element={<Feed user={user} />} exact />
             <Route path="/signin" element={<SignIn setUser={setUser} />} />
+            <Route path="/details" element={<Details />} exact />
           </Routes>
           <CartButton />
         </main>

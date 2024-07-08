@@ -2,11 +2,6 @@ import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom'
 
 const Nav = () => {
-  // const [isDropdownVisible, setIsDropdownVisible] = useState(false);
-
-  // const handleDropdownToggle = () => {
-  //   setIsDropdownVisible(!isDropdownVisible);
-  // }
   return (
     <header>
       <div>
@@ -24,6 +19,8 @@ const Nav = () => {
               </div>
               <NavLink to="/Offers">Offers</NavLink>
               <NavLink to="/Brands">Brands</NavLink>
+              <NavLink to="/register">Register</NavLink>
+              <NavLink to="/signin">Login</NavLink>
             </div>
           </div>
         </nav>

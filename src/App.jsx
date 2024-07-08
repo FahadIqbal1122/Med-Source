@@ -17,11 +17,30 @@ import { CheckSession } from "./services/Auth"
 import SignIn from "./pages/SignIn"
 
 const App = () => {
+  const [user, setUser] = useState(null)
+
+  const handleLogOut = () => {
+    //Reset all auth related state and clear localStorage
+    setUser(null)
+    localStorage.clear()
+  }
+
+  const checkToken = async () => {
+    const user = await CheckSession()
+    setUser(user)
+  }
+
+  useEffect(() => {
+    const token = localStorage.getItem('token')
+    if (token) {
+      checkToken()
+    }
+  }, [])
   return (
     <div>
       <body>
         <header>
-          <Nav />
+        <Nav user={user} handleLogOut={handleLogOut} />
         </header>
         <main>
           <Routes>

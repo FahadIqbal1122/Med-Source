@@ -308,4 +308,56 @@ body {
   background-color: #f1f1f1;
 }
 
+/* Brands Page */
+.brands {
+  text-align: center;
+  padding: 40px 20px;
+  border-radius: 8px;
+}
+
+.brands h2 {
+  font-size: 32px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.all-products {
+  display: inline-block;
+  font-size: 16px;
+  color: #333;
+  text-decoration: none;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.brands-grid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(150px, 1fr));
+  gap: 20px;
+  justify-items: center;
+  
+}
+
+.inside-brands {
+  background-color: #ffffff;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.3s;
+  background-color: #f5f5f5;
+  cursor: pointer;
+}
+
+.inside-brands:hover {
+  transform: scale(1.05);
+}
+
+.inside-brands img {
+  max-width: 100%;
+  max-height: 100px;
+  object-fit: contain;
+}
 

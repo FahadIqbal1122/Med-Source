@@ -32,6 +32,7 @@ const App = () => {
             <Route path="/MyMedicines" element={<MyMedicines />} exact />
             <Route path="/Contact" element={<Contact />} exact />
             <Route path="/Products" element={<Products />} exact />
+            <Route path="/register" element={<Feed user={user} />} exact />
           </Routes>
           <CartButton />
         </main>

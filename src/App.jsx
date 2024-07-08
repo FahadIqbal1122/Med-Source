@@ -14,6 +14,7 @@ import Products from "./pages/products"
 import Register from "./pages/Register"
 import Feed from "./pages/Feed"
 import { CheckSession } from "./services/Auth"
+import SignIn from "./pages/SignIn"
 
 const App = () => {
   return (
@@ -35,6 +36,7 @@ const App = () => {
             <Route path="/Products" element={<Products />} exact />
             <Route path="/register" element={<Register />} exact />
             <Route path="/feed" element={<Feed user={user} />} exact />
+            <Route path="/signin" element={<SignIn setUser={setUser} />} />
           </Routes>
           <CartButton />
         </main>

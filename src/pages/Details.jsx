@@ -2,8 +2,9 @@ import React from "react"
 import axios from "axios"
 import React, { useEffect, useState } from "react"
 import "../App.css"
+import cardDetails from "../components/cardDetails"
 
-const Details = (props) => {
+const Details = () => {
     const [products, setProducts] = useState([])
     useEffect(() => {
         const getAllProducts = async () => {
@@ -14,12 +15,13 @@ const Details = (props) => {
         getAllProducts()
       }, [])
     return (
-        <div className="products-page-container" >
+        <div className="productsdetails-page-container" >
       {products.map((product) => (
-        <ProductCard
+        <cardDetails
           key={product.id}
           id={product.id}
           name={product.name}
+          description= {product.description}
           price={product.price}
           img={product.image}
         />
@@ -27,6 +29,5 @@ const Details = (props) => {
     </div>
     )
 }
-
 
 export default Details

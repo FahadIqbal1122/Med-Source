@@ -30,7 +30,6 @@ const App = () => {
     const token = localStorage.getItem('token')
     if (user) return
     if (token) {
-      console.log(`token exists: ${token}`)
       const fetchUser = async (token) => {
         try {
           const response = await axios.get('http://localhost:5000/profile', {
@@ -38,7 +37,7 @@ const App = () => {
               Authorization: `Bearer ${token}`
             }
           })
-          console.log(response)
+
           if (response) {
             setUser(response.data)
           }
@@ -47,7 +46,6 @@ const App = () => {
         }
       }
       fetchUser(token)
-      console.log(`user: ${user}`)
     }
   }, [user])
 
@@ -89,7 +87,7 @@ const App = () => {
               exact
             />
             <Route path="/Add" element={<Add user={user} />} exact />
-            <Route path="/Edit" element={<Edit user={user} />} exact />
+            <Route path="/Edit/:id" element={<Edit user={user} />} exact />
           </Routes>
           <CartButton />
         </main>

@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'
+import { useParams } from 'react-router-dom'
 import axios from 'axios'
 
-const Add = ({ user }) => {
+const Edit = ({ user }) => {
   const [ProductName, setProductName] = useState('')
   const [ProductDescription, setProductDescription] = useState('')
   const [Productcategory, setProductcategory] = useState('')
@@ -10,30 +11,28 @@ const Add = ({ user }) => {
   const [Productquantity, setProductquantity] = useState('')
   const [Productavailable, setProductavailable] = useState('')
   const [image, setimage] = useState('')
+  const [product, setProduct] = useState(null)
+  const { id } = useParams()
   useEffect(() => {
-    const fetchRecivers = async () => {
+    const fetchinform = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/users')
-        const filteredUsers = response.data.filter(
-          (user) => user.id !== user.logged_user
-        )
-        console.log(filteredUsers)
-        setRecievers(filteredUsers)
+        const response = await axios.get(`http://localhost:5000/products/${id}`)
+        setProduct(response.data)
       } catch (error) {
         console.error('Error fetching users:', error)
       }
     }
-
-    fetchRecivers()
+    fetchinform()
   }, [])
 
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
       const response = await axios.post('http://localhost:5000/messages', {
-        user_id: user.logged_user,
-        receiver_id: selectedReciver,
-        content: YourMassege
+        name: ProductName,
+        description: ProductDescription,
+        price: ProductPrice,
+        quantity: Productquantity
       })
 
       console.log('Message sent successfully:', response.data)
@@ -62,6 +61,7 @@ const Add = ({ user }) => {
             <input
               type="text"
               id="ProductName"
+              placeholder={product.name}
               value={ProductName}
               onChange={(e) => setProductName(e.target.value)}
               required
@@ -71,6 +71,7 @@ const Add = ({ user }) => {
             <label htmlFor="ProductDescription">Product Description:</label>
             <input
               id="ProductDescription"
+              placeholder={product.description}
               value={ProductDescription}
               onChange={(e) => setProductDescription(e.target.value)}
               required
@@ -80,6 +81,7 @@ const Add = ({ user }) => {
             <label htmlFor="Productcategory">Product category:</label>
             <input
               id="Productcategory"
+              placeholder={product.category}
               value={Productcategory}
               onChange={(e) => setProductcategory(e.target.value)}
               required
@@ -89,6 +91,7 @@ const Add = ({ user }) => {
             <label htmlFor="Productbrand">Product brand:</label>
             <input
               id="Productbrand"
+              placeholder={product.brand}
               value={Productbrand}
               onChange={(e) => setProductbrand(e.target.value)}
               required
@@ -98,6 +101,7 @@ const Add = ({ user }) => {
             <label htmlFor="ProductPrice">Product Price:</label>
             <input
               id="ProductPrice"
+              placeholder={product.price}
               value={ProductPrice}
               onChange={(e) => setProductPrice(e.target.value)}
               required
@@ -107,6 +111,7 @@ const Add = ({ user }) => {
             <label htmlFor="Productquantity">Product quantity:</label>
             <input
               id="Productquantity"
+              placeholder={product.quantity}
               value={Productquantity}
               onChange={(e) => setProductquantity(e.target.value)}
               required
@@ -116,6 +121,7 @@ const Add = ({ user }) => {
             <label htmlFor="Productavailable">Product available:</label>
             <input
               id="Productavailable"
+              placeholder={product.available}
               value={Productavailable}
               onChange={(e) => setProductavailable(e.target.value)}
               required
@@ -126,6 +132,7 @@ const Add = ({ user }) => {
             <label htmlFor="image">Product image:</label>
             <input
               id="image"
+              placeholder={product.image}
               value={image}
               onChange={(e) => setimage(e.target.value)}
               required
@@ -141,4 +148,4 @@ const Add = ({ user }) => {
   )
 }
 
-export default Add
+export default Edit

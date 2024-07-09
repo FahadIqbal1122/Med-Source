@@ -32,7 +32,7 @@ const Details = () => {
 
       <button
         onClick={() => {
-          navigate('/Edit')
+          navigate(`/Edit/${products.id}`)
         }}
         className="submit-button"
       >

@@ -1,51 +1,75 @@
-import React, { useState, useEffect } from "react"
-import axios from "axios"
+import React, { useState, useEffect } from 'react'
+import axios from 'axios'
 
 const Contact = ({ user }) => {
-  const [patientName, setPatientName] = useState("")
-  const [PatientIDCadr, setPatientIDCadr] = useState("")
-  const [YourMassege, setYourMassege] = useState("")
+  const [patientName, setPatientName] = useState('')
+  const [PatientIDCadr, setPatientIDCadr] = useState('')
+  const [YourMessage, setYourMessage] = useState('')
   const [recievers, setRecievers] = useState([])
-  const [selectedReciver, setSelectedReciver] = useState("")
+  const [selectedReciver, setSelectedReciver] = useState('')
+  const [messages, setMessages] = useState([])
 
   useEffect(() => {
+    console.log('useEffect with dependencies')
     const fetchRecivers = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/users")
+        const response = await axios.get('http://localhost:5000/users')
         const filteredUsers = response.data.filter(
           (user) => user.id !== user.logged_user
         )
         console.log(filteredUsers)
         setRecievers(filteredUsers)
       } catch (error) {
-        console.error("Error fetching users:", error)
+        console.error('Error fetching users:', error)
       }
     }
 
     fetchRecivers()
+  }, [user.logged_user])
+
+  useEffect(() => {
+    console.log('useEffect no dependencies')
+
+    getMessage()
   }, [])
+
+  const getMessage = async () => {
+    try {
+      const response = await axios.get('http://localhost:5000/messages')
+      const filteredMessage = response.data.filter(
+        (message) => message.receiver_id === user.logged_user
+      )
+      console.log(response.data)
+      setMessages(filteredMessage)
+    } catch (error) {
+      console.error('Error fetching users:', error)
+    }
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
-      const response = await axios.post("http://localhost:5000/messages", {
+      const response = await axios.post('http://localhost:5000/messages', {
         user_id: user.logged_user,
         receiver_id: selectedReciver,
-        content: YourMassege,
+        content: YourMessage
       })
 
-      console.log("Message sent successfully:", response.data)
-      setPatientName("")
-      setPatientIDCadr("")
-      setYourMessage("")
+      console.log('Message sent successfully:', response.data)
+      setPatientName('')
+      setPatientIDCadr('')
+      setYourMessage('')
+      setMessages()
+      await getMessage()
     } catch (error) {
       console.error(
-        "Error sending message:",
+        'Error sending message:',
         error.response?.data || error.message
       )
     }
   }
 
+  console.log('rendering')
   return (
     <>
       <div className="contact-form">
@@ -88,11 +112,11 @@ const Contact = ({ user }) => {
             </select>
           </div>
           <div className="form-group">
-            <label htmlFor="YourMassege">Your Massege:</label>
+            <label htmlFor="YourMassege">Your Message:</label>
             <textarea
-              id="YourMassege"
-              value={YourMassege}
-              onChange={(e) => setYourMassege(e.target.value)}
+              id="YourMessage"
+              value={YourMessage}
+              onChange={(e) => setYourMessage(e.target.value)}
               required
             />
           </div>
@@ -100,6 +124,22 @@ const Contact = ({ user }) => {
             Submit Request
           </button>
         </form>
+      </div>
+
+      <div>
+        {' '}
+        <div>
+          <h3>Received Messages:</h3>
+          <ul>
+            {messages &&
+              messages.map((message) => (
+                <li key={message.id}>
+                  <strong>From: {message.receiver_id}</strong> -{' '}
+                  {message.Content}
+                </li>
+              ))}
+          </ul>
+        </div>
       </div>
     </>
   )

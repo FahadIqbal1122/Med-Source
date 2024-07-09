@@ -12,6 +12,7 @@ import Products from "./pages/products"
 import Register from "./pages/Register"
 import SignIn from "./pages/SignIn"
 import Details from "./pages/Details"
+import RequestedProducts from "./components/RequestedProducts"
 import React, { useState, useEffect } from "react"
 import axios from "axios"
 
@@ -24,28 +25,29 @@ const App = () => {
   }
 
   useEffect(() => {
-    const fetchUser = async (token) => {
-      try {
-        const response = await axios.get('http://localhost:5000/profile', {
-          headers: {
-            Authorization: `Bearer ${token}`
-          }
-        })
-        console.log(response)
-        if (response) {
-          setUser(response.data)
-        }
-      } catch (error) {
-        console.error(`Error fetching user ${error}`)
-      }
-    }
     const token = localStorage.getItem("token")
+    if (user) return
     if (token) {
       console.log(`token exists: ${token}`)
+      const fetchUser = async (token) => {
+        try {
+          const response = await axios.get("http://localhost:5000/profile", {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          })
+          console.log(response)
+          if (response) {
+            setUser(response.data)
+          }
+        } catch (error) {
+          console.error(`Error fetching user ${error}`)
+        }
+      }
       fetchUser(token)
       console.log(`user: ${user}`)
     }
-  }, [])
+  }, [user])
 
   return (
     <div>

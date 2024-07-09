@@ -1,18 +1,25 @@
 import Brands_card from './BrandCard'
 import axios from 'axios'
 import { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 const Brands = () => {
+
+  const navigate = useNavigate()
 
   return (
     <>
       <div className="brands">
         <h2>Brands</h2>
         <a href="#" className="all-products">All Products</a>
-        <div className="brands-grid">
-          <div className="inside-brands">
+        <div className="brands-grid" >
+          <div className="inside-brands" onClick={() => {
+              navigate('/ProductBrand')
+            }}>
             <img src="https://api.nasserpharmacy.com/images?file=/brands/loreal_1-285x123.5.png" alt="L'Oreal" />
           </div>
-          <div className="inside-brands">
+          <div className="inside-brands" onClick={() => {
+              navigate('/ProductBrand/${brand}')
+            }}>
             <img src="https://api.nasserpharmacy.com/images?file=/brands/Eucerin-285x123.5.png" alt="Eucerin" />
           </div>
           <div className="inside-brands">
@@ -40,14 +47,26 @@ const Brands = () => {
             <img src="https://api.nasserpharmacy.com/images?file=/brands/kiss-285x123.5.png" alt="Cerelac" />
           </div>
           <div className="inside-brands">
-            <img src="" alt="Cerelac" />
+            <img src="https://api.nasserpharmacy.com/images?file=tea-tree-285x123.5.png" alt="Cerelac" />
           </div>
           <div className="inside-brands">
-            <img src="" alt="Cerelac" />
+            <img src="https://api.nasserpharmacy.com/images?file=//brands/priorin-285x123.5.png" alt="Cerelac" />
           </div>
           <div className="inside-brands">
-            <img src="" alt="Cerelac" />
+            <img src="https://api.nasserpharmacy.com/images?file=/brands/nbty_1-285x123.5.png" alt="Cerelac" />
           </div>
+          <div className="inside-brands">
+            <img src="https://api.nasserpharmacy.com/images?file=/brands/rx-285x123.5.png" alt="Cerelac" />
+          </div>
+          <div className="inside-brands">
+            <img src="https://api.nasserpharmacy.com/images?file=/brands/bourjois-285x123.5.png" alt="Cerelac" />
+          </div>
+          <div className="inside-brands">
+            <img src="https://api.nasserpharmacy.com/images?file=/brands/NIVEA_logo-285x123.5.png" alt="Cerelac" />
+          </div>
+
+          
+          
           
         </div>
       </div>

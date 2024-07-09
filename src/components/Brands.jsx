@@ -2,9 +2,11 @@ import Brands_card from './BrandCard'
 import axios from 'axios'
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-const Brands = () => {
 
-  const navigate = useNavigate()
+const Brands = () => {
+    const navigate = useNavigate();
+  
+    
 
   return (
     <>
@@ -12,14 +14,10 @@ const Brands = () => {
         <h2>Brands</h2>
         <a href="#" className="all-products">All Products</a>
         <div className="brands-grid" >
-          <div className="inside-brands" onClick={() => {
-              navigate('/ProductBrand/Loreal')
-            }}>
+        <div className="inside-brands" onClick={() => handleNavigate('L\'Oreal')}>
             <img src="https://api.nasserpharmacy.com/images?file=/brands/loreal_1-285x123.5.png" alt="L'Oreal" />
           </div>
-          <div className="inside-brands" onClick={() => {
-              navigate('/ProductBrand/Eucerin')
-            }}>
+          <div className="inside-brands" onClick={() => handleNavigate('Eucerin')}>
             <img src="https://api.nasserpharmacy.com/images?file=/brands/Eucerin-285x123.5.png" alt="Eucerin" />
           </div>
           <div className="inside-brands">

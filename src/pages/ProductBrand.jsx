@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
+import ProductCard from '../components/ProductCard';
+
 
 const ProductBrand = () => {
   const { brand } = useParams();
@@ -9,8 +11,8 @@ const ProductBrand = () => {
   useEffect(() => {
     const getAllProducts = async () => {
       try {
-        const res = await axios.get('http://localhost:5000/products');
-        const filteredProducts = res.data.filter(product => product.brand === brand);
+        const res = await axios.get(`http://localhost:5000/products`);
+        const filteredProducts = res.data.filter(product => product.brand.toLowerCase() === brand.toLowerCase());
         setProducts(filteredProducts);
       } catch (error) {
         console.error('Error fetching products:', error);
@@ -24,18 +26,16 @@ const ProductBrand = () => {
     <>
       <h2>{brand} Products</h2>
       <div className="products-grid">
-        {products.length > 0 ? (
-          products.map(product => (
-            <div key={product.id} className="product-card">
-              <img src={product.image} alt={product.name} />
-              <h3>{product.name}</h3>
-              <p>{product.description}</p>
-              <p>${product.price}</p>
-            </div>
-          ))
-        ) : (
-          <p>No products found for this brand.</p>
-        )}
+      {products.map((product) => (
+        <ProductCard
+          key={product.id}
+          id={product.id}
+          name={product.name}
+          price={product.price}
+          img={product.image}
+        //   onClick={() => handleSubmit(product.id)}
+        />
+      ))}
       </div>
     </>
   );

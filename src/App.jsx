@@ -12,6 +12,7 @@ import Products from "./pages/products"
 import Register from "./pages/Register"
 import SignIn from "./pages/SignIn"
 import Details from "./pages/Details"
+import CartPro from "./pages/CartPro"
 import RequestedProducts from "./components/RequestedProducts"
 import React, { useState, useEffect } from "react"
 import axios from "axios"
@@ -86,6 +87,7 @@ const App = () => {
               element={<Details setUser={setUser} />}
               exact
             />
+            <Route path="/CartPro" element={<CartPro user={user} />}></Route>
           </Routes>
           <CartButton />
         </main>

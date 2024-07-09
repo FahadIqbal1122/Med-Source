@@ -1,33 +1,32 @@
-import axios from 'axios'
-import React, { useState, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
+import axios from "axios"
+import React, { useState, useEffect } from "react"
+import { useNavigate } from "react-router-dom"
 const RequestMed = ({ user }) => {
-  const [patientName, setPatientName] = useState('')
+  const [patientName, setPatientName] = useState("")
   const [medicines, setMedicines] = useState([])
-  const [selectedMedicine, setSelectedMedicine] = useState('')
-  const [requestDetails, setRequestDetails] = useState('')
+  const [selectedMedicine, setSelectedMedicine] = useState("")
+  const [requestDetails, setRequestDetails] = useState("")
   const navigate = useNavigate()
   const handleSubmit = async (e) => {
     e.preventDefault()
-    console.log('Form submitted with:', {
+    console.log("Form submitted with:", {
       patientName,
 
-      requestDetails
+      requestDetails,
     })
     const sent = await axios.post(`http://localhost:5000/request`, {
-      user_id: user,
-      product_ids: selectedMedicine
+      user_id: user.logged_user,
+      product_ids: selectedMedicine,
     })
     console.log(sent)
-    setPatientName('')
-    setMedicineName('')
-    setRequestDetails('')
+    setPatientName("")
+    setRequestDetails("")
   }
   useEffect(() => {
     const get_products = async () => {
       const response = await axios.get(`http://localhost:5000/products`)
       const availableMedicines = response.data.filter(
-        (medicine) => !medicine.available
+        (medicine) => medicine.available
       )
       console.log(availableMedicines)
       setMedicines(availableMedicines)
@@ -40,7 +39,7 @@ const RequestMed = ({ user }) => {
     <div className="request-med">
       <button
         onClick={() => {
-          navigate('/RequestedProducts')
+          navigate("/RequestedProducts")
         }}
       >
         Your Requested products

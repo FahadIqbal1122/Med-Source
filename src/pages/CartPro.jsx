@@ -2,7 +2,7 @@ import axios from "axios"
 import { useState, useEffect } from "react"
 
 const CartPro = ({ user }) => {
-  const [products, setProducts] = useState({})
+  const [products, setProducts] = useState(null)
 
   const checkIfCartExists = async () => {
     try {
@@ -28,11 +28,12 @@ const CartPro = ({ user }) => {
       // Fetch products regardless of whether a new cart was created
     }
     const getProducts = async () => {
+      console.log("this is get products")
       const response = await axios.get(
         `http://localhost:5000/carts/${user.logged_user}`
       )
       console.log("products", response.data)
-      setProducts(response.data)
+      setProducts(response.data.products)
     }
     getProducts()
     initializeCart()
@@ -52,23 +53,31 @@ const CartPro = ({ user }) => {
     }
   }
 
-  const RemoveProduct = async () => {
+  const RemoveProduct = async (pro_id) => {
     const res = await axios.put(
-      `http://localhost:5000/carts/${user.logged_user}`
+      `http://localhost:5000/carts/${user.logged_user}`,
+      {
+        product_id: [pro_id],
+      }
     )
     console.log(res)
+    console.log(ProductId)
   }
 
   return (
     <div>
-      {products.products.map((pro) => (
-        <div key={pro.id}>
-          <img src={pro.image} />
-          <h2>{pro.name}</h2>
-          <p>{pro.description}</p>
-          <button>Remove</button>
-        </div>
-      ))}
+      {products ? (
+        products.map((pro) => (
+          <div key={pro.id}>
+            <img src={pro.image} alt={pro.name} />
+            <h2>{pro.name}</h2>
+            <p>{pro.description}</p>
+            <button onClick={() => RemoveProduct(pro.id)}>Remove</button>
+          </div>
+        ))
+      ) : (
+        <p>No products available</p>
+      )}
     </div>
   )
 }

@@ -16,6 +16,7 @@ import CartPro from "./pages/CartPro"
 import RequestedProducts from "./components/RequestedProducts"
 import React, { useState, useEffect } from "react"
 import axios from "axios"
+import ProductBrand from "./pages/ProductBrand"
 
 const App = () => {
   const [user, setUser] = useState(null)
@@ -85,6 +86,11 @@ const App = () => {
             <Route
               path="/Products/details/:productId"
               element={<Details setUser={setUser} />}
+              exact
+            />
+            <Route
+              path="/ProductBrand/:brand"
+              element={<ProductBrand setUser={setUser} />}
               exact
             />
             <Route path="/CartPro" element={<CartPro user={user} />}></Route>

@@ -5,8 +5,9 @@ import ProductCard from '../components/ProductCard';
 
 
 const ProductBrand = () => {
-  const { brand } = useParams();
-  const [products, setProducts] = useState([]);
+  const { brand } = useParams()
+  const [products, setProducts] = useState([])
+
 
   useEffect(() => {
     const getAllProducts = async () => {
@@ -33,7 +34,7 @@ const ProductBrand = () => {
           name={product.name}
           price={product.price}
           img={product.image}
-        //   onClick={() => handleSubmit(product.id)}
+          onClick={() => handleSubmit(product.id)}
         />
       ))}
       </div>

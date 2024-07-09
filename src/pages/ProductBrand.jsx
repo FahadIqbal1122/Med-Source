@@ -18,7 +18,7 @@ const ProductBrand = () => {
     const getAllProducts = async () => {
       try {
         const res = await axios.get(`http://localhost:5000/products`);
-        const filteredProducts = res.data.filter(product => product.brand.toLowerCase() === brand.toLowerCase());
+        const filteredProducts = res.data.filter(product => product.brand === brand);
         setProducts(filteredProducts);
       } catch (error) {
         console.error('Error fetching products:', error);
@@ -31,7 +31,7 @@ const ProductBrand = () => {
   return (
     <>
       <h2>{brand} Products</h2>
-      <div className="products-grid">
+      <div className="products-page-container">
       {products.map((product) => (
         <ProductCard
           key={product.id}

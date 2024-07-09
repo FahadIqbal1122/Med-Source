@@ -1,8 +1,8 @@
-import axios from "axios"
-import React, { useEffect, useState } from "react"
-import { useNavigate } from "react-router-dom"
-import "../App.css"
-import ProductCard from "../components/ProductCard"
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import '../App.css'
+import ProductCard from '../components/ProductCard'
 
 const Products = () => {
   const [products, setProducts] = useState([])
@@ -24,18 +24,30 @@ const Products = () => {
   console.log(products)
 
   return (
-    <div className="products-page-container" >
-      {products.map((product) => (
-        <ProductCard
-          key={product.id}
-          id={product.id}
-          name={product.name}
-          price={product.price}
-          img={product.image}
-          onClick={() => handleSubmit(product.id)}
-        />
-      ))}
-    </div>
+    <>
+      <div className="products-page-container">
+        {products.map((product) => (
+          <ProductCard
+            key={product.id}
+            id={product.id}
+            name={product.name}
+            price={product.price}
+            img={product.image}
+            onClick={() => handleSubmit(product.id)}
+          />
+        ))}
+      </div>
+      <div>
+        <button
+          className="submit-button"
+          onClick={() => {
+            navigate('/Add')
+          }}
+        >
+          Add Product
+        </button>
+      </div>
+    </>
   )
 }
 

@@ -5,11 +5,11 @@ import { useNavigate } from 'react-router-dom'
 
 import '../App.css'
 
-const Details = () => {
+const Details = ({user}) => {
   const { productId } = useParams()
   const navigate = useNavigate()
-
   const [products, setProducts] = useState([])
+  
   useEffect(() => {
     const getAllProducts = async () => {
       const res = await axios.get(`http://localhost:5000/products/${productId}`)
@@ -19,6 +19,15 @@ const Details = () => {
 
     getAllProducts()
   }, [])
+  
+    const addToCart = async () => {
+    const res = await axios.put(
+      `http://localhost:5000/carts/${user.logged_user}`,
+      { product_id: [products.id] }
+    )
+    console.log(res)
+  }
+    
   return (
     <>
       <div className="productsdetails-page-container">
@@ -27,7 +36,7 @@ const Details = () => {
         <h3>{products.category}</h3>
         <p>{products.description}</p>
         <p>{products.price}</p>
-        <button>Add to cart</button>
+        <button onClick={addToCart}>Add to cart</button>
       </div>
 
       <button

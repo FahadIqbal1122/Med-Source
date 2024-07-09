@@ -23,6 +23,7 @@ const Register = () => {
       email: formValues.email,
       phone_number: formValues.phone,
       password: formValues.password,
+      patient: true,
     })
     setFormValues({
       name: "",

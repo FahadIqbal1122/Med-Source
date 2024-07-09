@@ -17,6 +17,7 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import Add from './pages/Add'
 import Edit from './pages/Edit'
+import ProductBrand from "./pages/ProductBrand"
 
 const App = () => {
   const [user, setUser] = useState(null)
@@ -83,11 +84,17 @@ const App = () => {
             <Route path="/signin" element={<SignIn setUser={setUser} />} />
             <Route
               path="/Products/details/:productId"
-              element={<Details setUser={setUser} />}
+              element={<Details user={user} />}
               exact
             />
             <Route path="/Add" element={<Add user={user} />} exact />
             <Route path="/Edit/:id" element={<Edit user={user} />} exact />
+            <Route
+              path="/ProductBrand/:brand"
+              element={<ProductBrand setUser={setUser} />}
+              exact
+            />
+            <Route path="/CartPro" element={<CartPro user={user} />}></Route>
           </Routes>
           <CartButton />
         </main>

@@ -15,19 +15,18 @@ const RequestMed = ({ user }) => {
       requestDetails
     })
     const sent = await axios.post(`http://localhost:5000/request`, {
-      user_id: user,
+      user_id: user.logged_user,
       product_ids: selectedMedicine
     })
     console.log(sent)
     setPatientName('')
-    setMedicineName('')
     setRequestDetails('')
   }
   useEffect(() => {
     const get_products = async () => {
       const response = await axios.get(`http://localhost:5000/products`)
       const availableMedicines = response.data.filter(
-        (medicine) => !medicine.available
+        (medicine) => !medicine.availabl
       )
       console.log(availableMedicines)
       setMedicines(availableMedicines)

@@ -7,7 +7,9 @@ const RequestedProducts = ({ user }) => {
 
   useEffect(() => {
     const getRequests = async () => {
-      const response = await axios.get(`http://localhost:5000/request/${user}`)
+      const response = await axios.get(
+        `http://localhost:5000/request/${user.logged_user}`
+      )
       console.log(response.data)
       setRequests(response.data)
     }

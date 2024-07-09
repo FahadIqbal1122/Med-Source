@@ -6,7 +6,9 @@ import { useNavigate } from 'react-router-dom'
 const Brands = () => {
     const navigate = useNavigate();
   
-    
+    const handleNavigate = (brand) => {
+      navigate(`/ProductBrand/${brand}`);
+    }
 
   return (
     <>

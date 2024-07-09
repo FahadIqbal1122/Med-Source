@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { useNavigate } from "react-router-dom"
 import axios from 'axios';
 import ProductCard from '../components/ProductCard';
 
@@ -7,7 +8,11 @@ import ProductCard from '../components/ProductCard';
 const ProductBrand = () => {
   const { brand } = useParams()
   const [products, setProducts] = useState([])
+  const navigate = useNavigate()
 
+  const handleSubmit = async (productId) => {
+    navigate(`/products/details/${productId}`)
+  }
 
   useEffect(() => {
     const getAllProducts = async () => {

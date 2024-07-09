@@ -1,21 +1,22 @@
-import "./App.css"
-import { Routes, Route } from "react-router-dom"
-import Home from "./pages/Home"
-import Nav from "./components/Nav"
-import Categories from "./components/Categories"
-import Brands from "./components/Brands"
-import RequestMed from "./pages/RequestMed"
-import MyMedicines from "./pages/MyMedicines"
-import Contact from "./pages/Contact"
-import CartButton from "./components/CartButton"
-import Products from "./pages/products"
-import Register from "./pages/Register"
-import SignIn from "./pages/SignIn"
-import Details from "./pages/Details"
-import CartPro from "./pages/CartPro"
-import RequestedProducts from "./components/RequestedProducts"
-import React, { useState, useEffect } from "react"
-import axios from "axios"
+import './App.css'
+import { Routes, Route } from 'react-router-dom'
+import Home from './pages/Home'
+import Nav from './components/Nav'
+import Categories from './components/Categories'
+import Brands from './components/Brands'
+import RequestMed from './pages/RequestMed'
+import MyMedicines from './pages/MyMedicines'
+import Contact from './pages/Contact'
+import CartButton from './components/CartButton'
+import Products from './pages/Products'
+import Register from './pages/Register'
+import SignIn from './pages/SignIn'
+import Details from './pages/Details'
+import RequestedProducts from './components/RequestedProducts'
+import React, { useState, useEffect } from 'react'
+import axios from 'axios'
+import Add from './pages/Add'
+import Edit from './pages/Edit'
 import ProductBrand from "./pages/ProductBrand"
 
 const App = () => {
@@ -27,18 +28,17 @@ const App = () => {
   }
 
   useEffect(() => {
-    const token = localStorage.getItem("token")
+    const token = localStorage.getItem('token')
     if (user) return
     if (token) {
-      console.log(`token exists: ${token}`)
       const fetchUser = async (token) => {
         try {
-          const response = await axios.get("http://localhost:5000/profile", {
+          const response = await axios.get('http://localhost:5000/profile', {
             headers: {
-              Authorization: `Bearer ${token}`,
-            },
+              Authorization: `Bearer ${token}`
+            }
           })
-          console.log(response)
+
           if (response) {
             setUser(response.data)
           }
@@ -47,7 +47,6 @@ const App = () => {
         }
       }
       fetchUser(token)
-      console.log(`user: ${user}`)
     }
   }, [user])
 
@@ -88,6 +87,8 @@ const App = () => {
               element={<Details user={user} />}
               exact
             />
+            <Route path="/Add" element={<Add user={user} />} exact />
+            <Route path="/Edit/:id" element={<Edit user={user} />} exact />
             <Route
               path="/ProductBrand/:brand"
               element={<ProductBrand setUser={setUser} />}

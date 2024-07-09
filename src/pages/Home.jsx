@@ -5,15 +5,9 @@ const Home = () => {
   const formSectionRef = useRef(null)
   const renderCountSectionRef = useRef(null)
   const ourServices2Ref = useRef(null)
-  const rendersRef = useRef(0)
 
   const navigate = useNavigate()
 
-  const handleSubmit = async (RequestMed, Contact, MyMedicines) => {
-    navigate(`${RequestMed}`)
-    navigate(`${Contact}`)
-    navigate(`${MyMedicines}`)
-  }
   const scrollToElement = (ref) => {
     ref.current.scrollIntoView({ behavior: 'smooth' })
   }

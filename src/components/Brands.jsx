@@ -13,12 +13,12 @@ const Brands = () => {
         <a href="#" className="all-products">All Products</a>
         <div className="brands-grid" >
           <div className="inside-brands" onClick={() => {
-              navigate('/ProductBrand')
+              navigate('/ProductBrand/Loreal')
             }}>
             <img src="https://api.nasserpharmacy.com/images?file=/brands/loreal_1-285x123.5.png" alt="L'Oreal" />
           </div>
           <div className="inside-brands" onClick={() => {
-              navigate('/ProductBrand/${brand}')
+              navigate('/ProductBrand/Eucerin')
             }}>
             <img src="https://api.nasserpharmacy.com/images?file=/brands/Eucerin-285x123.5.png" alt="Eucerin" />
           </div>

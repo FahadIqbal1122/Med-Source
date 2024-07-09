@@ -6,7 +6,19 @@ const ProductBrand = () => {
   const { brand } = useParams();
   const [products, setProducts] = useState([]);
 
+  useEffect(() => {
+    const getAllProducts = async () => {
+      try {
+        const res = await axios.get('http://localhost:5000/products');
+        const filteredProducts = res.data.filter(product => product.brand === brand);
+        setProducts(filteredProducts);
+      } catch (error) {
+        console.error('Error fetching products:', error);
+      }
+    };
 
+    getAllProducts();
+  }, [brand]);
 
   return (
     <>

@@ -2,14 +2,14 @@ import axios from "axios"
 import { useState, useEffect } from "react"
 
 const CartPro = ({ user }) => {
-  const [products, setProducts] = useState([])
+  const [products, setProducts] = useState({})
 
   const checkIfCartExists = async () => {
     try {
       const response = await axios.get(
         `http://localhost:5000/carts/${user.logged_user}`
       )
-      return !!response.data.length
+      return response.data && Object.keys(response.data).length > 0
     } catch (error) {
       console.error("Error checking for cart:", error)
       return false
@@ -26,18 +26,18 @@ const CartPro = ({ user }) => {
         }
       }
       // Fetch products regardless of whether a new cart was created
-      const getProducts = async () => {
-        const response = await axios.get(
-          `http://localhost:5000/carts/${user.logged_user}`
-        )
-        console.log("products", response.data[0].products)
-        setProducts(response.data[0].products)
-      }
-      getProducts()
     }
+    const getProducts = async () => {
+      const response = await axios.get(
+        `http://localhost:5000/carts/${user.logged_user}`
+      )
+      console.log("products", response.data)
+      setProducts(response.data)
+    }
+    getProducts()
     initializeCart()
   }, [])
-
+  console.log(products)
   const createNewCart = async (user_id, totalAmount) => {
     try {
       const response = await axios.post(`http://localhost:5000/carts`, {
@@ -52,13 +52,21 @@ const CartPro = ({ user }) => {
     }
   }
 
+  const RemoveProduct = async () => {
+    const res = await axios.put(
+      `http://localhost:5000/carts/${user.logged_user}`
+    )
+    console.log(res)
+  }
+
   return (
     <div>
-      {products.map((pro) => (
+      {products.products.map((pro) => (
         <div key={pro.id}>
           <img src={pro.image} />
           <h2>{pro.name}</h2>
           <p>{pro.description}</p>
+          <button>Remove</button>
         </div>
       ))}
     </div>

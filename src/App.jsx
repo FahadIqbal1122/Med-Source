@@ -84,7 +84,7 @@ const App = () => {
             <Route path="/signin" element={<SignIn setUser={setUser} />} />
             <Route
               path="/Products/details/:productId"
-              element={<Details setUser={setUser} />}
+              element={<Details user={user} />}
               exact
             />
             <Route path="/CartPro" element={<CartPro user={user} />}></Route>

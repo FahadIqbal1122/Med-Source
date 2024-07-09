@@ -1,6 +1,12 @@
+<<<<<<< HEAD
+import React from "react"
+import "../App.css"
+import { Link } from "react-router-dom"
+=======
 import React from 'react'
 import '../App.css'
 import { Link } from 'react-router-dom'
+>>>>>>> ed55fbf (contact page)
 
 const ProductCard = (props) => {
   return (

@@ -30,7 +30,7 @@ const CartPro = ({ user }) => {
         const response = await axios.get(
           `http://localhost:5000/carts/${user.logged_user}`
         )
-        console.log("carts", response.data[0].products)
+        console.log("products", response.data[0].products)
         setProducts(response.data[0].products)
       }
       getProducts()

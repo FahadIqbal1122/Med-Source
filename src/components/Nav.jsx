@@ -23,7 +23,11 @@ const Nav = ({ user, handleLogOut }) => {
               {!isLoggedIn && <NavLink to="/register">Register</NavLink>}
               {!isLoggedIn && <NavLink to="/signin">Login</NavLink>}
 
-              {isLoggedIn && <button onClick={handleLogOut}>Logout</button>}
+              {isLoggedIn && (
+                <NavLink to="/">
+                  <button onClick={handleLogOut}>Logout</button>
+                </NavLink>
+              )}
             </div>
           </div>
         </nav>

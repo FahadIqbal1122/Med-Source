@@ -44,26 +44,34 @@ const Details = ({ user }) => {
         <h3>{products.category}</h3>
         <p>{products.description}</p>
         <p>{products.price}</p>
-        <button onClick={addToCart}>Add to cart</button>
-        <button onClick={addToList}>Add to List</button>
+        {user && (
+          <>
+            <button onClick={addToCart}>Add to cart</button>
+            <button onClick={addToList}>Add to List</button>
+          </>
+        )}
       </div>
 
-      <button
-        onClick={() => {
-          navigate(`/Edit/${products.id}`)
-        }}
-        className="submit-button"
-      >
-        Edit Product
-      </button>
-      <button
-        onClick={() => {
-          navigate("/Products")
-        }}
-        className="submit-button"
-      >
-        Delete Product
-      </button>
+      {user && user.patient === false && (
+        <>
+          <button
+            onClick={() => {
+              navigate(`/Edit/${products.id}`)
+            }}
+            className="submit-button"
+          >
+            Edit Product
+          </button>
+          <button
+            onClick={() => {
+              navigate("/Products")
+            }}
+            className="submit-button"
+          >
+            Delete Product
+          </button>
+        </>
+      )}
     </>
   )
 }

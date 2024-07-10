@@ -1,6 +1,6 @@
 import axios from "axios"
 import React, { useState, useEffect } from "react"
-import { useNavigate } from "react-router-dom"
+import { useNavigate, Link } from "react-router-dom"
 const RequestMed = ({ user }) => {
   const [patientName, setPatientName] = useState("")
   const [medicines, setMedicines] = useState([])
@@ -37,54 +37,63 @@ const RequestMed = ({ user }) => {
   console.log(selectedMedicine)
   return (
     <div className="request-med">
-      <button
-        onClick={() => {
-          navigate("/RequestedProducts")
-        }}
-      >
-        Your Requested products
-      </button>
-      <h2>Request Medical Information</h2>
-      <form onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label htmlFor="patientName">Patient Name:</label>
-          <input
-            type="number"
-            id="patientName"
-            value={patientName}
-            onChange={(e) => setPatientName(e.target.value)}
-            required
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="MedicineName">Medicine Name:</label>
-          <select
-            id="medicine"
-            value={selectedMedicine}
-            onChange={(e) => setSelectedMedicine(e.target.value)}
-            required
+      {user ? (
+        <>
+          <button
+            onClick={() => {
+              navigate("/RequestedProducts")
+            }}
           >
-            <option value="">Select a medicine</option>
-            {medicines.map((medicine) => (
-              <option key={medicine.id} value={medicine.id}>
-                {medicine.name}
-              </option>
-            ))}
-          </select>
-        </div>
-        <div className="form-group">
-          <label htmlFor="requestDetails">Request Details:</label>
-          <textarea
-            id="requestDetails"
-            value={requestDetails}
-            onChange={(e) => setRequestDetails(e.target.value)}
-            required
-          />
-        </div>
-        <button type="submit" className="submit-button">
-          Submit Request
-        </button>
-      </form>
+            Your Requested products
+          </button>
+          <h2>Request Medical Information</h2>
+          <form onSubmit={handleSubmit}>
+            <div className="form-group">
+              <label htmlFor="patientName">Patient Name:</label>
+              <input
+                type="number"
+                id="patientName"
+                value={patientName}
+                onChange={(e) => setPatientName(e.target.value)}
+                required
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="MedicineName">Medicine Name:</label>
+              <select
+                id="medicine"
+                value={selectedMedicine}
+                onChange={(e) => setSelectedMedicine(e.target.value)}
+                required
+              >
+                <option value="">Select a medicine</option>
+                {medicines.map((medicine) => (
+                  <option key={medicine.id} value={medicine.id}>
+                    {medicine.name}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <div className="form-group">
+              <label htmlFor="requestDetails">Request Details:</label>
+              <textarea
+                id="requestDetails"
+                value={requestDetails}
+                onChange={(e) => setRequestDetails(e.target.value)}
+                required
+              />
+            </div>
+            <button type="submit" className="submit-button">
+              Submit Request
+            </button>
+          </form>
+        </>
+      ) : (
+        <>
+          <h1>Please Login</h1>
+          <Link to={"/signin"}>Login</Link>
+        </>
+      )}
     </div>
   )
 }

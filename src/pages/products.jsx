@@ -1,10 +1,10 @@
-import axios from 'axios'
-import React, { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-import '../App.css'
-import ProductCard from '../components/ProductCard'
+import axios from "axios"
+import React, { useEffect, useState } from "react"
+import { useNavigate } from "react-router-dom"
+import "../App.css"
+import ProductCard from "../components/ProductCard"
 
-const Products = () => {
+const Products = ({ user }) => {
   const [products, setProducts] = useState([])
   const navigate = useNavigate()
 
@@ -14,7 +14,7 @@ const Products = () => {
 
   useEffect(() => {
     const getAllProducts = async () => {
-      const res = await axios.get('http://localhost:5000/products')
+      const res = await axios.get("http://localhost:5000/products")
       setProducts(res.data)
       console.log(res.data.id)
     }
@@ -38,14 +38,16 @@ const Products = () => {
         ))}
       </div>
       <div>
-        <button
-          className="submit-button"
-          onClick={() => {
-            navigate('/Add')
-          }}
-        >
-          Add Product
-        </button>
+        {user && user.patient === false ? (
+          <button
+            className="submit-button"
+            onClick={() => {
+              navigate("/Add")
+            }}
+          >
+            Add Product
+          </button>
+        ) : null}
       </div>
     </>
   )

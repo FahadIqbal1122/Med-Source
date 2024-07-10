@@ -1,5 +1,6 @@
 import axios from "axios"
 import { useState, useEffect } from "react"
+import { Link } from "react-router-dom"
 
 const MyMedicines = ({ user }) => {
   const [products, setProducts] = useState(null)
@@ -67,16 +68,23 @@ const MyMedicines = ({ user }) => {
   return (
     <div>
       {products ? (
-        products.map((pro) => (
-          <div key={pro.id}>
-            <img src={pro.image} alt={pro.name} />
-            <h2>{pro.name}</h2>
-            <p>{pro.description}</p>
-            <button onClick={() => RemoveProduct(pro.id)}>Remove</button>
-          </div>
-        ))
+        products.length > 0 ? (
+          products.map((pro) => (
+            <div key={pro.id}>
+              <img src={pro.image} alt={pro.name} />
+              <h2>{pro.name}</h2>
+              <p>{pro.description}</p>
+              <button onClick={() => RemoveProduct(pro.id)}>Remove</button>
+            </div>
+          ))
+        ) : (
+          <p>No products available</p>
+        )
       ) : (
-        <p>No products available</p>
+        <>
+          <h1>Please Login</h1>
+          <Link to={"/signin"}>Login</Link>
+        </>
       )}
     </div>
   )

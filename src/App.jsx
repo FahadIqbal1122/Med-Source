@@ -24,7 +24,6 @@ import Orders from './pages/Orders'
 import Profile from './pages/Profile'
 import Editprofile from './pages/Editprofile'
 
-
 const App = () => {
   const [user, setUser] = useState(null)
 
@@ -99,11 +98,13 @@ const App = () => {
               exact
             />
             <Route path="/orders" element={<Orders user={user} />} />
-            <Route path="/CartPro" element={<CartPro user={user} />} />
+            <Route path="/CartPro" element={<CartPro user={user} />}></Route>
             <Route path="/Profile" element={<Profile user={user} />}></Route>
+
             <Route
               path="/profile/edit/:id"
               element={<Editprofile user={user} />}
+              exact
             />
             <Route
               path="/ProductCate/:category"

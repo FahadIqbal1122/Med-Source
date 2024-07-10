@@ -10,6 +10,6 @@ const RequestedProducts = () => {
     }
     fetchinfo()
   }, [user])
-  return <div></div>
+  return <div className="request-med"></div>
 }
 export default RequestedProducts

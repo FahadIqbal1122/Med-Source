@@ -46,7 +46,7 @@ const Details = ({ user }) => {
     <>
       <div className="productsdetails-page-container">
         <img src={products.image} alt="proimg" />
-        <h2>{products.brand}</h2>
+        <h1>{products.name}</h1>
         <h3>{products.category}</h3>
         <p>{products.description}</p>
         <p>{products.price}</p>

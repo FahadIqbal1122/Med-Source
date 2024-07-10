@@ -49,7 +49,7 @@ const Categories = () => {
         </div>
         <div className="Category-container3">
           <section>
-            <button onClick={() => handleNavigate('Baby-Skin')}>
+            <button onClick={() => handleNavigate('Baby Skin')}>
               <img width={500} src="../public/images/Baby-Skin.png" />
             </button>
           </section>

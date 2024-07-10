@@ -663,3 +663,81 @@ body {
   text-decoration: underline;
 }
 
+/* Details */
+.productsdetails-page-container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #ffffff;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+.productsdetails-page-container img {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.productsdetails-page-container h1 {
+  font-size: 2em;
+  margin: 10px 0;
+}
+
+.productsdetails-page-container h3 {
+  font-size: 1.5em;
+  color: #666;
+  margin: 10px 0;
+}
+
+.productsdetails-page-container p {
+  font-size: 1.2em;
+  color: #333;
+  margin: 10px 0;
+}
+
+.productsdetails-page-container button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin: 10px;
+}
+
+.productsdetails-page-container button:hover {
+  background-color: #0056b3;
+}
+
+.submit-button {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin: 10px;
+}
+
+.submit-button:hover {
+  background-color: #218838;
+}
+
+.delete-button {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin: 10px;
+}
+
+.delete-button:hover {
+  background-color: #c82333;
+}

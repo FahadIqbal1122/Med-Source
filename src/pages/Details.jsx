@@ -49,7 +49,7 @@ const Details = ({ user }) => {
         <h1>{products.name}</h1>
         <h3>{products.category}</h3>
         <p>{products.description}</p>
-        <p>{products.price}</p>
+        <p>{products.price} BD</p>
         {user && (
           <>
             <button onClick={addToCart}>Add to cart</button>

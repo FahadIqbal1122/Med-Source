@@ -1,9 +1,9 @@
-import axios from 'axios'
-import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
-import { useNavigate } from 'react-router-dom'
+import axios from "axios"
+import React, { useEffect, useState } from "react"
+import { useParams } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 
-import '../App.css'
+import "../App.css"
 
 const Details = ({ user }) => {
   const { productId } = useParams()
@@ -29,16 +29,6 @@ const Details = ({ user }) => {
   }
 
   return (
-<<<<<<< HEAD
-    <div className="productsdetails-page-container">
-      <img src={products.image} alt="proimg" />
-      <h2>{products.brand}</h2>
-      <h3>{products.category}</h3>
-      <p>{products.description}</p>
-      <p>{products.price}</p>
-      <button onClick={addToCart}>Add to cart</button>
-    </div>
-=======
     <>
       <div className="productsdetails-page-container">
         <img src={products.image} alt="proimg" />
@@ -46,7 +36,7 @@ const Details = ({ user }) => {
         <h3>{products.category}</h3>
         <p>{products.description}</p>
         <p>{products.price}</p>
-        <button>Add to cart</button>
+        <button onClick={addToCart}>Add to cart</button>
       </div>
 
       <button
@@ -59,14 +49,13 @@ const Details = ({ user }) => {
       </button>
       <button
         onClick={() => {
-          navigate('/Products')
+          navigate("/Products")
         }}
         className="submit-button"
       >
         Delete Product
       </button>
     </>
->>>>>>> ed55fbf (contact page)
   )
 }
 

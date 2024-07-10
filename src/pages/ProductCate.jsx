@@ -10,7 +10,9 @@ const Productcate = () => {
   const [products, setProducts] = useState([])
   const navigate = useNavigate()
 
-
+  const handleSubmit = async (productId) => {
+    navigate(`/products/details/${productId}`)
+  }
 
   useEffect(() => {
     const getAllProducts = async () => {

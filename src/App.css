@@ -10,7 +10,7 @@ body {
 .nav-cont {
   height: 10vh;
   font-size: xx-large;
-  background-image: url('../public/images/logo.jpeg');
+  background-image: url("../public/images/logo.jpeg");
   background-repeat: no-repeat;
   display: flex;
   justify-content: flex-end;
@@ -28,7 +28,6 @@ body {
   color: black;
 }
 
-.headerLogin {
 .headerLogin {
   align-self: center;
   background-image: none;
@@ -78,7 +77,6 @@ body {
   box-shadow: rgba(0, 0, 0, 0.3) 2px 8px 4px -6px;
 }
 
-#logout {
 #logout {
   border: none;
   background-color: #f0f1ff;
@@ -155,12 +153,12 @@ body {
 
 .here h1 {
   font-size: 15vh;
-  font-family: 'Great Vibes', cursive;
+  font-family: "Great Vibes", cursive;
 }
 
 .intro p {
   font-size: 4vh;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 .scroll button {
   background: linear-gradient(to right, #a18cd1, #fbc2eb);
@@ -506,10 +504,10 @@ body {
 .input-wrapper label {
   font-size: 2em;
   margin-right: 10px;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
-    'Lucida Sans', Arial, sans-serif;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
-    'Lucida Sans', Arial, sans-serif;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
   font-weight: bold;
 }
 
@@ -528,10 +526,10 @@ body {
   background-color: #000;
   color: #fff;
   cursor: pointer;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
-    'Lucida Sans', Arial, sans-serif;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
-    'Lucida Sans', Arial, sans-serif;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
 }
 
 .signin-right {
@@ -545,7 +543,6 @@ body {
   width: 100%;
 }
 
-<<<<<<< HEAD
 .profile {
   display: grid;
   align-items: center;
@@ -566,7 +563,6 @@ h2 {
   border-radius: 5px;
   border: 1px solid #ccc;
 }
-=======
 /* cart */
 .cart-container {
   padding: 20px;
@@ -576,7 +572,7 @@ h2 {
   background-color: #a18cd1;
 }
 
-.cart-product{
+.cart-product {
   border: 1px solid #ccc;
   border-radius: 8px;
   padding: 10px;
@@ -593,11 +589,11 @@ h2 {
   margin-right: 10px;
 }
 
-.cart-product h2{
+.cart-product h2 {
   margin: 0;
   font-size: 1.5em;
 }
-.cart-product p{
+.cart-product p {
   margin: 5px 0;
   color: #555;
 }
@@ -615,7 +611,7 @@ h2 {
   background-color: #ff4c4c;
 }
 
-.checkout-btn{
+.checkout-btn {
   all: unset;
   width: 75vh;
   height: 30px;
@@ -642,13 +638,12 @@ h2 {
 
 .checkout-btn::after,
 .checkout-btn::before {
-  content: '';
+  content: "";
   position: absolute;
   bottom: 0;
   right: 0;
   z-index: -99999;
-  transition: all .4s;
-  
+  transition: all 0.4s;
 }
 
 .checkout-btn::before {
@@ -657,7 +652,6 @@ h2 {
   height: 100%;
   background: #fbc2eb;
   border-radius: 10px;
-  
 }
 
 .checkout-btn::after {
@@ -705,5 +699,3 @@ h2 {
 .please-login a:hover {
   text-decoration: underline;
 }
-
->>>>>>> 2c087df (cart page done)

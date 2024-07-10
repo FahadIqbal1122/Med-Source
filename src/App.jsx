@@ -16,10 +16,10 @@ import Register from './pages/Register'
 import SignIn from './pages/SignIn'
 import Details from './pages/Details'
 import CartPro from './pages/CartPro'
+import Orders from './pages/Orders'
 import RequestedProducts from './components/RequestedProducts'
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-import ProductBrand from './pages/ProductBrand'
 
 const App = () => {
   const [user, setUser] = useState(null)
@@ -96,8 +96,10 @@ const App = () => {
               element={<ProductBrand setUser={setUser} />}
               exact
             />
+            <Route path="/orders" element={<Orders user={user} />} />
             <Route path="/CartPro" element={<CartPro user={user} />}></Route>
           </Routes>
+
           <CartButton />
         </main>
       </body>

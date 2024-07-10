@@ -24,27 +24,20 @@ const RequestedProducts = ({ user }) => {
     } catch (error) {}
   }
   return (
-    <div className="request-med">
-      <div className="form-group">
-        {requests.map((req) => (
-          <div key={req.id}>
-            {req.products.map((pro) => (
-              <div key={pro.id}>
-                <img src={pro.image} />
-                <h2>{pro.name}</h2>
-                <p>{pro.description}</p>
-                <p>{pro.id}</p>
-                <p>req: {req.id}</p>
-                <div className="headerLogin">
-                  <button id="logout" onClick={() => Removeit(req.id)}>
-                    Remove
-                  </button>
-                </div>
-              </div>
-            ))}
-          </div>
-        ))}
-      </div>
+    <div>
+      {requests.map((req) => (
+        <div key={req.id}>
+          {req.products.map((pro) => (
+            <div key={pro.id}>
+              <img src={pro.image} />
+              <h2>{pro.name}</h2>
+              <p>{pro.description}</p>
+
+              <button onClick={() => Removeit(req.id)}>Remove</button>
+            </div>
+          ))}
+        </div>
+      ))}
     </div>
   )
 }

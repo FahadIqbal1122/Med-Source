@@ -3,6 +3,7 @@ import { useState, useEffect } from "react"
 
 const CartPro = ({ user }) => {
   const [products, setProducts] = useState(null)
+  const [change, setChange] = useState(false)
 
   const checkIfCartExists = async () => {
     try {
@@ -37,7 +38,7 @@ const CartPro = ({ user }) => {
     }
     getProducts()
     initializeCart()
-  }, [])
+  }, [change])
   console.log(products)
   const createNewCart = async (user_id, totalAmount) => {
     try {
@@ -55,13 +56,10 @@ const CartPro = ({ user }) => {
 
   const RemoveProduct = async (pro_id) => {
     const res = await axios.put(
-      `http://localhost:5000/carts/${user.logged_user}`,
-      {
-        product_id: [pro_id],
-      }
+      `http://localhost:5000/carts/${user.logged_user}/${pro_id}`
     )
     console.log(res)
-    console.log(ProductId)
+    setChange(true)
   }
 
   return (

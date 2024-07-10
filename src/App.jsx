@@ -19,7 +19,7 @@ import CartPro from './pages/CartPro'
 import RequestedProducts from './components/RequestedProducts'
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-import ProductBrand from './pages/ProductBrand'
+import ProductCate from './pages/ProductCate'
 
 const App = () => {
   const [user, setUser] = useState(null)
@@ -97,6 +97,11 @@ const App = () => {
               exact
             />
             <Route path="/CartPro" element={<CartPro user={user} />}></Route>
+            <Route
+              path="/ProductCate/:category"
+              element={<ProductCate setUser={setUser} />}
+              exact
+            />
           </Routes>
           <CartButton />
         </main>

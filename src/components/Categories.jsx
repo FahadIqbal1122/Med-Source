@@ -1,11 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 
 const Categories = () => {
-  const navigate = useNavigate()
 
-  const handleSubmit = async (category) => {
-    navigate(`${category}`)
-  }
 
   return (
     <>
@@ -37,7 +33,7 @@ const Categories = () => {
             </button>
           </section>
           <section>
-            <button onClick={() => handleSubmit('Skin-Care')}>
+            <button onClick={() => handleNavigate('Skin Care')}>
               <img width={500} src="../public/images/Skin-Care.png" />
             </button>
           </section>

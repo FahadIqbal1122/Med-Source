@@ -29,7 +29,21 @@ const Productcate = () => {
   }, [category]);
 
   return (
-    
+    <>
+      <h2>{category} Products</h2>
+      <div className="products-page-container">
+      {products.map((product) => (
+        <ProductCard
+          key={product.id}
+          id={product.id}
+          name={product.name}
+          price={product.price}
+          img={product.image}
+          onClick={() => handleSubmit(product.id)}
+        />
+      ))}
+      </div>
+    </>
   );
 };
 

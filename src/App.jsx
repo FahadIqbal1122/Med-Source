@@ -98,6 +98,11 @@ const App = () => {
             />
             <Route path="/orders" element={<Orders user={user} />} />
             <Route path="/CartPro" element={<CartPro user={user} />}></Route>
+            <Route path="/Profile" element={<Profile user={user} />}></Route>
+            {/* <Route path="/profile/edit/:userId" exact component={Editprofile} /> */}
+            <Route
+              path="/profile/edit/:id"
+              element={<Editprofile user={user} />}
             <Route
               path="/ProductCate/:category"
               element={<ProductCate setUser={setUser} />}

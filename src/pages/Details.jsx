@@ -1,9 +1,9 @@
-import axios from "axios"
-import React, { useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
-import { useNavigate } from "react-router-dom"
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
-import "../App.css"
+import '../App.css'
 
 const Details = ({ user }) => {
   const { productId } = useParams()
@@ -26,6 +26,12 @@ const Details = ({ user }) => {
       { product_id: [products.id] }
     )
     console.log(res)
+  }
+  const deleteIt = async () => {
+    const response = await axios.delete(
+      `http://localhost:5000/products/${productId}`
+    )
+    console.log(response.data)
   }
 
   const addToList = async () => {
@@ -62,14 +68,9 @@ const Details = ({ user }) => {
           >
             Edit Product
           </button>
-          <button
-            onClick={() => {
-              navigate("/Products")
-            }}
-            className="submit-button"
-          >
-            Delete Product
-          </button>
+ <button onClick={deleteIt} className="submit-button">
+        Delete Product
+      </button>
         </>
       )}
     </>

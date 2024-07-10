@@ -17,7 +17,7 @@ const Add = ({ user }) => {
   const [Productbrand, setProductbrand] = useState("")
   const [ProductPrice, setProductPrice] = useState("")
   const [Productquantity, setProductquantity] = useState("")
-  const [Productavailable, setProductavailable] = useState("")
+  const [Productavailable, setProductavailable] = useState(false)
   const [image, setimage] = useState("")
   useEffect(() => {
     const fetchRecivers = async () => {
@@ -39,10 +39,15 @@ const Add = ({ user }) => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
-      const response = await axios.post("http://localhost:5000/messages", {
-        user_id: user.logged_user,
-        receiver_id: selectedReciver,
-        content: YourMassege,
+      const response = await axios.post(`http://localhost:5000/products`, {
+        name: ProductName,
+        description: ProductDescription,
+        price: ProductPrice,
+        quantity: Productquantity,
+        category: Productcategory,
+        brand: Productbrand,
+        available: Productavailable,
+        image: image
       })
 
       console.log("Message sent successfully:", response.data)
@@ -60,7 +65,7 @@ const Add = ({ user }) => {
       )
     }
   }
-
+  console.log(Productavailable)
   return (
     <>
       <div className="contact-form">
@@ -124,10 +129,10 @@ const Add = ({ user }) => {
           <div className="form-group">
             <label htmlFor="Productavailable">Product available:</label>
             <input
+              type="checkbox"
               id="Productavailable"
-              value={Productavailable}
-              onChange={(e) => setProductavailable(e.target.value)}
-              required
+              checked={Productavailable}
+              onChange={(e) => setProductavailable(e.target.checked)}
             />
           </div>
 

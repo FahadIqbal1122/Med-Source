@@ -16,7 +16,7 @@ body {
   justify-content: flex-end;
 }
 .nav {
-  width: 50vh;
+  width: 50vw;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -133,7 +133,7 @@ body {
 }
 
 .service2 img {
-  max-width: 30vh;
+  max-width: 30vw;
   margin-bottom: 20px;
 }
 
@@ -161,7 +161,7 @@ body {
 .Category-container button {
   border: none;
   background-color: transparent;
-  width: 20vh;
+  width: 20vw;
   height: 15vh;
   cursor: pointer;
 }
@@ -175,7 +175,7 @@ body {
   position: fixed;
   bottom: 20px;
   left: 20px;
-  width: 10vh;
+  width: 10vw;
   height: 10vh;
   background-color: #ffffff;
   border-radius: 50%;
@@ -192,7 +192,7 @@ body {
 }
 
 .cart-button img {
-  width: 5vh;
+  width: 5vw;
   height: 5vh;
 }
 

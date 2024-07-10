@@ -9,6 +9,7 @@ const Contact = ({ user }) => {
   const [recievers, setRecievers] = useState([])
   const [selectedReciver, setSelectedReciver] = useState("")
   const [messages, setMessages] = useState([])
+  const [users, setUsers] = useState([])
 
   useEffect(() => {
     console.log("useEffect with dependencies")
@@ -20,6 +21,7 @@ const Contact = ({ user }) => {
         )
         console.log(filteredUsers)
         setRecievers(filteredUsers)
+        setUsers(response.data)
       } catch (error) {
         console.error("Error fetching users:", error)
       }
@@ -68,6 +70,11 @@ const Contact = ({ user }) => {
         error.response?.data || error.message
       )
     }
+  }
+
+  const getUserName = (userId) => {
+    const user = users.find((user) => user.id === userId)
+    return user ? user.name : "Unknown User"
   }
 
   console.log("rendering")
@@ -137,7 +144,7 @@ const Contact = ({ user }) => {
                 {messages &&
                   messages.map((message) => (
                     <li key={message.id}>
-                      <strong>From: {message.receiver_id}</strong> -{" "}
+                      <strong>From: {getUserName(message.user_id)}</strong> -{" "}
                       {message.Content}
                     </li>
                   ))}

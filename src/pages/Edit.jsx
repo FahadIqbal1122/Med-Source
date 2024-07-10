@@ -30,7 +30,7 @@ const Edit = ({ user }) => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
-      const response = await axios.put(`http://localhost:5000/${id}`, 
+      const response = await axios.put(`http://localhost:5000/${id}`, {
         name: ProductName,
         description: ProductDescription,
         price: ProductPrice,

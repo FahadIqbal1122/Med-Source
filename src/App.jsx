@@ -20,6 +20,7 @@ import RequestedProducts from "./components/RequestedProducts"
 import React, { useState, useEffect } from "react"
 import axios from "axios"
 import ProductCate from './pages/ProductCate'
+import Orders from './pages/Orders'
 
 const App = () => {
   const [user, setUser] = useState(null)

@@ -1,26 +1,35 @@
-import React, { useState, useEffect } from 'react'
-import axios from 'axios'
+import React, { useState, useEffect } from "react"
+import axios from "axios"
+import { Link } from "react-router-dom"
 
 const Add = ({ user }) => {
-  const [ProductName, setProductName] = useState('')
-  const [ProductDescription, setProductDescription] = useState('')
-  const [Productcategory, setProductcategory] = useState('')
-  const [Productbrand, setProductbrand] = useState('')
-  const [ProductPrice, setProductPrice] = useState('')
-  const [Productquantity, setProductquantity] = useState('')
-  const [Productavailable, setProductavailable] = useState('')
-  const [image, setimage] = useState('')
+  if (!user) {
+    return (
+      <div>
+        <h1>Please Login</h1>
+        <Link to="/SignIn">SignIn</Link>
+      </div>
+    )
+  }
+  const [ProductName, setProductName] = useState("")
+  const [ProductDescription, setProductDescription] = useState("")
+  const [Productcategory, setProductcategory] = useState("")
+  const [Productbrand, setProductbrand] = useState("")
+  const [ProductPrice, setProductPrice] = useState("")
+  const [Productquantity, setProductquantity] = useState("")
+  const [Productavailable, setProductavailable] = useState("")
+  const [image, setimage] = useState("")
   useEffect(() => {
     const fetchRecivers = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/users')
+        const response = await axios.get("http://localhost:5000/users")
         const filteredUsers = response.data.filter(
           (user) => user.id !== user.logged_user
         )
         console.log(filteredUsers)
         setRecievers(filteredUsers)
       } catch (error) {
-        console.error('Error fetching users:', error)
+        console.error("Error fetching users:", error)
       }
     }
 
@@ -30,23 +39,23 @@ const Add = ({ user }) => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
-      const response = await axios.post('http://localhost:5000/messages', {
+      const response = await axios.post("http://localhost:5000/messages", {
         user_id: user.logged_user,
         receiver_id: selectedReciver,
-        content: YourMassege
+        content: YourMassege,
       })
 
-      console.log('Message sent successfully:', response.data)
-      setProductName('')
-      setProductDescription('')
-      setProductcategory('')
-      setProductbrand('')
-      setProductPrice('')
-      setProductquantity('')
-      setProductavailable('')
+      console.log("Message sent successfully:", response.data)
+      setProductName("")
+      setProductDescription("")
+      setProductcategory("")
+      setProductbrand("")
+      setProductPrice("")
+      setProductquantity("")
+      setProductavailable("")
     } catch (error) {
       console.error(
-        'Error sending message:',
+        "Error sending message:",
         error.response?.data || error.message
       )
     }

@@ -9,17 +9,28 @@ const Contact = ({ user }) => {
   const [recievers, setRecievers] = useState([])
   const [selectedReciver, setSelectedReciver] = useState("")
   const [messages, setMessages] = useState([])
+  const [users, setUsers] = useState([])
 
   useEffect(() => {
     console.log("useEffect with dependencies")
     const fetchRecivers = async () => {
       try {
         const response = await axios.get("http://localhost:5000/users")
-        const filteredUsers = response.data.filter(
-          (user) => user.id !== user.logged_user
-        )
-        console.log(filteredUsers)
-        setRecievers(filteredUsers)
+        if (user.patient == true) {
+          const filteredUsers = response.data.filter(
+            (user) => user.patient == false && user.id !== user.logged_user
+          )
+          console.log(filteredUsers)
+          setRecievers(filteredUsers)
+        } else if (user.patient == false) {
+          const filteredUsers = response.data.filter(
+            (user) => user.patient === true && user.id !== user.logged_user
+          )
+          console.log(filteredUsers)
+          setRecievers(filteredUsers)
+        }
+
+        setUsers(response.data)
       } catch (error) {
         console.error("Error fetching users:", error)
       }
@@ -70,6 +81,11 @@ const Contact = ({ user }) => {
     }
   }
 
+  const getUserName = (userId) => {
+    const user = users.find((user) => user.id === userId)
+    return user ? user.name : "Unknown User"
+  }
+
   console.log("rendering")
   return (
     <>
@@ -91,6 +107,7 @@ const Contact = ({ user }) => {
               <div className="form-group">
                 <label htmlFor="PatientIDCadr">Patient CPR</label>
                 <input
+                  type="number"
                   id="PatientIDCadr"
                   value={PatientIDCadr}
                   onChange={(e) => setPatientIDCadr(e.target.value)}
@@ -137,7 +154,7 @@ const Contact = ({ user }) => {
                 {messages &&
                   messages.map((message) => (
                     <li key={message.id}>
-                      <strong>From: {message.receiver_id}</strong> -{" "}
+                      <strong>From: {getUserName(message.user_id)}</strong> -{" "}
                       {message.Content}
                     </li>
                   ))}

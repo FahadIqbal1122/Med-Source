@@ -1,28 +1,28 @@
-import './App.css'
-import { Routes, Route } from 'react-router-dom'
-import Home from './pages/Home'
-import Nav from './components/Nav'
-import Categories from './components/Categories'
-import Brands from './components/Brands'
-import RequestMed from './pages/RequestMed'
-import MyMedicines from './pages/MyMedicines'
-import Contact from './pages/Contact'
-import CartButton from './components/CartButton'
-import Add from './pages/Add'
-import Edit from './pages/Edit'
-import ProductBrand from './pages/ProductBrand'
-import Products from './pages/products'
-import Register from './pages/Register'
-import SignIn from './pages/SignIn'
-import Details from './pages/Details'
-import CartPro from './pages/CartPro'
-import RequestedProducts from './components/RequestedProducts'
-import React, { useState, useEffect } from 'react'
-import axios from 'axios'
-import ProductCate from './pages/ProductCate'
-import Orders from './pages/Orders'
-import Profile from './pages/Profile'
-import Editprofile from './pages/Editprofile'
+import "./App.css"
+import { Routes, Route } from "react-router-dom"
+import Home from "./pages/Home"
+import Nav from "./components/Nav"
+import Categories from "./components/Categories"
+import Brands from "./components/Brands"
+import RequestMed from "./pages/RequestMed"
+import MyMedicines from "./pages/MyMedicines"
+import Contact from "./pages/Contact"
+import CartButton from "./components/CartButton"
+import Add from "./pages/Add"
+import Edit from "./pages/Edit"
+import ProductBrand from "./pages/ProductBrand"
+import Products from "./pages/products"
+import Register from "./pages/Register"
+import SignIn from "./pages/SignIn"
+import Details from "./pages/Details"
+import CartPro from "./pages/CartPro"
+import RequestedProducts from "./components/RequestedProducts"
+import React, { useState, useEffect } from "react"
+import axios from "axios"
+import ProductCate from "./pages/ProductCate"
+import Orders from "./pages/Orders"
+import Profile from "./pages/Profile"
+import Editprofile from "./pages/Editprofile"
 
 const App = () => {
   const [user, setUser] = useState(null)
@@ -33,15 +33,15 @@ const App = () => {
   }
 
   useEffect(() => {
-    const token = localStorage.getItem('token')
+    const token = localStorage.getItem("token")
     if (user) return
     if (token) {
       const fetchUser = async (token) => {
         try {
-          const response = await axios.get('http://localhost:5000/profile', {
+          const response = await axios.get("http://localhost:5000/profile", {
             headers: {
-              Authorization: `Bearer ${token}`
-            }
+              Authorization: `Bearer ${token}`,
+            },
           })
 
           if (response) {

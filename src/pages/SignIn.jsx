@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom"
 const SignIn = (props) => {
   let navigate = useNavigate()
   const [formValues, setFormValues] = useState({ email: "", password: "" })
+  const [error, setError] = useState(null)
 
   const handleChange = (e) => {
     setFormValues({ ...formValues, [e.target.name]: e.target.value })
@@ -12,10 +13,17 @@ const SignIn = (props) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    const payload = await SignInUser(formValues)
-    setFormValues({ email: "", password: "" })
-    props.setUser(payload)
-    navigate("/products")
+    try {
+      const payload = await SignInUser(formValues)
+      setFormValues({ email: "", password: "" })
+      props.setUser(payload)
+      setError(null)
+      navigate("/products")
+    } catch (error) {
+      setError(
+        error.response?.data?.message || "An error occurred during registration"
+      )
+    }
   }
 
   return (
@@ -42,10 +50,14 @@ const SignIn = (props) => {
               required
             />
           </div>
-          <button className="login-button" disabled={!formValues.email || !formValues.password}>
+          <button
+            className="login-button"
+            disabled={!formValues.email || !formValues.password}
+          >
             Login
           </button>
         </form>
+        {error && <h1>{error}</h1>}
       </div>
       <div className="signin-right">
         <img src="../public/images/login.png" alt="Sign In Illustration" />

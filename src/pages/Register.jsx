@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { RegisterUser } from "../services/Auth"
+import Popup from "../components/Popup"
 
 const Register = () => {
   let navigate = useNavigate()
@@ -10,6 +11,7 @@ const Register = () => {
     password: "",
     confirmPassword: "",
   })
+  const [error, setError] = useState(null)
 
   const handleChange = (e) => {
     setFormValues({ ...formValues, [e.target.name]: e.target.value })
@@ -17,22 +19,30 @@ const Register = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    await RegisterUser({
-      first_name: formValues.name,
-      last_name: formValues.name,
-      email: formValues.email,
-      phone_number: formValues.phone,
-      password: formValues.password,
-      patient: true,
-    })
-    setFormValues({
-      name: "",
-      email: "",
-      password: "",
-      confirmPassword: "",
-      phone: "",
-    })
-    navigate("/signin")
+    try {
+      await RegisterUser({
+        first_name: formValues.name,
+        last_name: formValues.name,
+        email: formValues.email,
+        phone_number: formValues.phone,
+        password: formValues.password,
+        patient: true,
+      })
+      setFormValues({
+        name: "",
+        email: "",
+        password: "",
+        confirmPassword: "",
+        phone: "",
+      })
+      setError(null)
+      navigate("/signin")
+    } catch (error) {
+      console.error("Error Logging in user:", error)
+      setError(
+        error.response?.data?.message || "An error occurred during registration"
+      )
+    }
   }
 
   return (
@@ -92,7 +102,8 @@ const Register = () => {
               required
             />
           </div>
-          <button className="login-button"
+          <button
+            className="login-button"
             disabled={
               !formValues.email ||
               (!formValues.password &&
@@ -102,6 +113,7 @@ const Register = () => {
             Sign up
           </button>
         </form>
+        {error && <h1>{error}</h1>}
       </div>
       <div className="signin-right">
         <img src="../public/images/register.png" alt="Sign In Illustration" />

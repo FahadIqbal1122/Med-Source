@@ -17,9 +17,10 @@ import SignIn from './pages/SignIn'
 import Details from './pages/Details'
 import CartPro from './pages/CartPro'
 import RequestedProducts from './components/RequestedProducts'
+import Profile from './pages/Profile'
+import Editprofile from './pages/Editprofile'
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-import ProductBrand from './pages/ProductBrand'
 
 const App = () => {
   const [user, setUser] = useState(null)
@@ -97,7 +98,15 @@ const App = () => {
               exact
             />
             <Route path="/CartPro" element={<CartPro user={user} />}></Route>
+            <Route path="/Profile" element={<Profile user={user} />}></Route>
+            {/* <Route path="/profile/edit/:userId" exact component={Editprofile} /> */}
+            <Route
+              path="/profile/edit/:id"
+              element={<Editprofile user={user} />}
+              exact
+            />
           </Routes>
+
           <CartButton />
         </main>
       </body>

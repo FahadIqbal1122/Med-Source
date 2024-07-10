@@ -1,5 +1,5 @@
-import React, { useState } from "react"
-import { NavLink } from "react-router-dom"
+import React, { useState } from 'react'
+import { NavLink } from 'react-router-dom'
 
 const Nav = ({ user, handleLogOut }) => {
   const isLoggedIn = !!user
@@ -19,6 +19,7 @@ const Nav = ({ user, handleLogOut }) => {
                   <NavLink to="/Categories">Categories</NavLink>
                 </div>
               </div>
+
               <NavLink to="/Brands">Brands</NavLink>
               {!isLoggedIn && <NavLink to="/register">Register</NavLink>}
               {!isLoggedIn && <NavLink to="/signin">Login</NavLink>}
@@ -26,6 +27,9 @@ const Nav = ({ user, handleLogOut }) => {
               {isLoggedIn && (
                 <NavLink to="/">
                   <button onClick={handleLogOut}>Logout</button>
+                  <NavLink to="/Profile">
+                    <button>Profile</button>
+                  </NavLink>
                 </NavLink>
               )}
             </div>

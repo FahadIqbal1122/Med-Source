@@ -1,44 +1,57 @@
 import React, { useState } from 'react'
-import { NavLink } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 const Nav = ({ user, handleLogOut }) => {
   const isLoggedIn = !!user
 
   return (
     <header>
-      <div>
-        <nav>
-          <div className="nav-cont">
-            <div className="nav">
-              <NavLink to="/">Home</NavLink>
-              <div className="dropdown">
-                <NavLink to="/Products" className="dropdown-link">
-                  Products
-                </NavLink>
-                <div className="dropdown-menu">
-                  <NavLink to="/Categories">Categories</NavLink>
-                </div>
-              </div>
-
-              <NavLink to="/Brands">Brands</NavLink>
-              {!isLoggedIn && <NavLink to="/register">Register</NavLink>}
-              {!isLoggedIn && <NavLink to="/signin">Login</NavLink>}
-
-              {isLoggedIn && (
-                <NavLink to="/">
-                  <button className="service2" onClick={handleLogOut}>
-                    Logout
-                  </button>
-                  <NavLink to="/Profile">
-                    <button className="service2">Profile</button>
-                  </NavLink>
-                </NavLink>
-              )}
+  <div>
+    <nav>
+      <div className="nav-cont">
+        <div className="nav">
+          <div className="headerLogin">
+            <Link to="/">Home</Link>
+          </div>
+          <div className="headerLogin dropdown">
+            <Link to="/Products" className="dropdown-link">
+              Products
+            </Link>
+            <div className="dropdown-menu" >
+              <Link to="/Categories">Categories</Link>
             </div>
           </div>
-        </nav>
+          <div className="headerLogin">
+            <Link to="/Brands">Brands</Link>
+          </div>
+          {!isLoggedIn && (
+            <>
+              <div className="headerLogin">
+                <Link to="/register">Register</Link>
+              </div>
+              <div className="headerLogin">
+                <Link to="/signin">Login</Link>
+              </div>
+            </>
+          )}
+          {isLoggedIn && (
+            <>
+              <div className="headerLogin">
+                <button onClick={handleLogOut} id='logout'>Logout</button>
+              </div>
+              <div className="headerLogin">
+                <Link to="/Profile">
+                  <button id='logout'>Profile</button>
+                </Link>
+              </div>
+            </>
+          )}
+        </div>
       </div>
-    </header>
+    </nav>
+  </div>
+</header>
+
   )
 }
 

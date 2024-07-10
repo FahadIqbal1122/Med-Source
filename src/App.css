@@ -16,12 +16,113 @@ body {
   justify-content: flex-end;
 }
 .nav {
-  width: 50vw;
+  width: 40vw;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   text-decoration: none;
+
+}
+
+.nav a {
+  text-decoration: none;
   color: black;
+}
+
+.headerLogin{
+  align-self: center;
+  background-image: none;
+  background-position: 0 90%;
+  background-repeat: repeat no-repeat;
+  background-size: 4px 3px;
+  border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
+  border-style: solid;
+  border-width: 2px;
+  box-shadow: rgba(0, 0, 0, .2) 15px 28px 25px -18px;
+  box-sizing: border-box;
+  color: #a18cd1;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Neucha, sans-serif;
+  font-size: 1rem;
+  line-height: 23px;
+  outline: none;
+  padding: .75rem;
+  text-decoration: none;
+  transition: all 235ms ease-in-out;
+  border-bottom-left-radius: 15px 255px;
+  border-bottom-right-radius: 225px 15px;
+  border-top-left-radius: 255px 15px;
+  border-top-right-radius: 15px 225px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.headerLogin:hover {
+  box-shadow: rgba(0, 0, 0, .3) 2px 8px 8px -5px;
+  transform: translate3d(0, 2px, 0);
+}
+
+.headerLogin:focus {
+  box-shadow: rgba(0, 0, 0, .3) 2px 8px 4px -6px;
+}
+
+#logout{
+  border: none;
+  background-color: #f0f1ff;
+  color: black;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-link:hover + .dropdown-menu,
+.dropdown-menu:hover {
+  display: block;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: transparent;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: .75rem;
+  border: 2px solid;
+  border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
+  box-shadow: rgba(0, 0, 0, .2) 15px 28px 25px -18px;
+  box-sizing: border-box;
+  color: black;
+  cursor: pointer;
+  font-family: Neucha, sans-serif;
+  font-size: 1rem;
+  line-height: 23px;
+  text-decoration: none;
+  transition: all 235ms ease-in-out;
+  margin-bottom: 1vh;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.dropdown-menu a:hover {
+  box-shadow: rgba(0, 0, 0, .3) 2px 8px 8px -5px;
+  transform: translate3d(0, 2px, 0);
+}
+
+.dropdown-menu a:focus {
+  box-shadow: rgba(0, 0, 0, .3) 2px 8px 4px -6px;
 }
 
 .img1 {
@@ -175,8 +276,8 @@ body {
   position: fixed;
   bottom: 20px;
   left: 20px;
-  width: 10vw;
-  height: 10vh;
+  width: 13vh;
+  height: 13vh;
   background-color: #ffffff;
   border-radius: 50%;
   display: flex;
@@ -192,7 +293,7 @@ body {
 }
 
 .cart-button img {
-  width: 5vw;
+  width: 3vw;
   height: 5vh;
 }
 
@@ -267,42 +368,6 @@ body {
   color: #333;
   font-size: 40px;
   margin-bottom: 60px;
-}
-
-.nav {
-  display: flex;
-  gap: 20px;
-}
-
-.dropdown {
-  position: relative;
-}
-
-.dropdown-link:hover + .dropdown-menu,
-.dropdown-menu:hover {
-  display: block;
-}
-
-.dropdown-menu {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background-color: white;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  z-index: 1;
-}
-
-.dropdown-menu a {
-  display: block;
-  padding: 10px;
-  text-decoration: none;
-  color: black;
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-}
-
-.dropdown-menu a:hover {
-  background-color: #f1f1f1;
 }
 
 /* Brands Page */

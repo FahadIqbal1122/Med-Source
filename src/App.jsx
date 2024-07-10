@@ -15,13 +15,14 @@ import Products from './pages/products'
 import Register from './pages/Register'
 import SignIn from './pages/SignIn'
 import Details from './pages/Details'
-import Orders from './pages/Orders'
 import CartPro from './pages/CartPro'
 import RequestedProducts from './components/RequestedProducts'
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import ProductCate from './pages/ProductCate'
-//import RequestedProducts from './components/RequestedProducts'
+import Orders from './pages/Orders'
+import Profile from './pages/Profile'
+import Editprofile from './pages/Editprofile'
 
 const App = () => {
   const [user, setUser] = useState(null)
@@ -64,7 +65,6 @@ const App = () => {
           <Routes>
             <Route path="/" element={<Home user={user} />} exact />
             <Route path="/Categories" element={<Categories />} exact />
-            {/* <Route path="/Offers" element={<Offers user={user} />} exact /> */}
             <Route path="/Brands" element={<Brands user={user} />} exact />
             <Route
               path="/RequestMed"
@@ -84,7 +84,6 @@ const App = () => {
             <Route path="/Contact" element={<Contact user={user} />} exact />
             <Route path="/Products" element={<Products user={user} />} exact />
             <Route path="/register" element={<Register />} exact />
-
             <Route path="/signin" element={<SignIn setUser={setUser} />} />
             <Route
               path="/Products/details/:productId"
@@ -100,13 +99,19 @@ const App = () => {
             />
             <Route path="/orders" element={<Orders user={user} />} />
             <Route path="/CartPro" element={<CartPro user={user} />}></Route>
+            <Route path="/Profile" element={<Profile user={user} />}></Route>
+
+            <Route
+              path="/profile/edit/:id"
+              element={<Editprofile user={user} />}
+              exact
+            />
             <Route
               path="/ProductCate/:category"
               element={<ProductCate setUser={setUser} />}
               exact
             />
           </Routes>
-
           <CartButton />
         </main>
       </body>

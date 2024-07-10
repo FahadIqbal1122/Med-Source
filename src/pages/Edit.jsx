@@ -1,16 +1,25 @@
-import React, { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
-import axios from 'axios'
+import React, { useState, useEffect } from "react"
+import { useParams } from "react-router-dom"
+import axios from "axios"
+import { Link } from "react-router-dom"
 
 const Edit = ({ user }) => {
-  const [ProductName, setProductName] = useState('')
-  const [ProductDescription, setProductDescription] = useState('')
-  const [Productcategory, setProductcategory] = useState('')
-  const [Productbrand, setProductbrand] = useState('')
-  const [ProductPrice, setProductPrice] = useState('')
-  const [Productquantity, setProductquantity] = useState('')
+  if (!user) {
+    return (
+      <div>
+        <h1>Please Login</h1>
+        <Link to="/SignIn">SignIn</Link>
+      </div>
+    )
+  }
+  const [ProductName, setProductName] = useState("")
+  const [ProductDescription, setProductDescription] = useState("")
+  const [Productcategory, setProductcategory] = useState("")
+  const [Productbrand, setProductbrand] = useState("")
+  const [ProductPrice, setProductPrice] = useState("")
+  const [Productquantity, setProductquantity] = useState("")
   const [Productavailable, setProductavailable] = useState(false)
-  const [image, setimage] = useState('')
+  const [image, setimage] = useState("")
   const [product, setProduct] = useState(null)
   const { id } = useParams()
   useEffect(() => {
@@ -38,7 +47,7 @@ const Edit = ({ user }) => {
         category: Productcategory,
         brand: Productbrand,
         available: Productavailable,
-        image: image
+        image: image,
       })
 
       console.log('Message sent successfully:', response.data)

@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react"
-import { useParams } from "react-router-dom"
-import axios from "axios"
+import React, { useState, useEffect } from 'react'
+import { useParams } from 'react-router-dom'
+import axios from 'axios'
 
 const Edit = ({ user }) => {
   const [ProductName, setProductName] = useState('')
@@ -21,7 +21,7 @@ const Edit = ({ user }) => {
         setProduct(response.data)
         console.log(response.data)
       } catch (error) {
-        console.error("Error fetching users:", error)
+        console.error('Error fetching users:', error)
       }
     }
     fetchinform()
@@ -30,7 +30,7 @@ const Edit = ({ user }) => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
-      const response = await axios.put(`http://localhost:5000/${id}`, 
+      const response = await axios.put(`http://localhost:5000/products/${id}`, {
         name: ProductName,
         description: ProductDescription,
         price: ProductPrice,
@@ -41,17 +41,17 @@ const Edit = ({ user }) => {
         image: image
       })
 
-      console.log("Message sent successfully:", response.data)
-      setProductName("")
-      setProductDescription("")
-      setProductcategory("")
-      setProductbrand("")
-      setProductPrice("")
-      setProductquantity("")
-      setProductavailable("")
+      console.log('Message sent successfully:', response.data)
+      setProductName('')
+      setProductDescription('')
+      setProductcategory('')
+      setProductbrand('')
+      setProductPrice('')
+      setProductquantity('')
+      setProductavailable('')
     } catch (error) {
       console.error(
-        "Error sending message:",
+        'Error sending message:',
         error.response?.data || error.message
       )
     }

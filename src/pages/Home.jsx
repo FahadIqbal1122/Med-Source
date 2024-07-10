@@ -122,6 +122,14 @@ const Home = () => {
           >
             Contact the Pharmacist
           </button>
+
+          <button
+            onClick={() => {
+              navigate('/RequestedProducts')
+            }}
+          >
+            Checkinggggg
+          </button>
         </div>
       </section>
     </>

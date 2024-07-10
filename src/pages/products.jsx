@@ -16,7 +16,7 @@ const Products = () => {
     const getAllProducts = async () => {
       const res = await axios.get('http://localhost:5000/products')
       setProducts(res.data)
-      console.log(res)
+      console.log(res.data.id)
     }
 
     getAllProducts()

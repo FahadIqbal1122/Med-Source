@@ -96,6 +96,7 @@ const App = () => {
               element={<ProductBrand setUser={setUser} />}
               exact
             />
+            <Route path="/orders" element={<Orders user={user} />} />
             <Route path="/CartPro" element={<CartPro user={user} />}></Route>
             <Route
               path="/ProductCate/:category"
@@ -103,6 +104,7 @@ const App = () => {
               exact
             />
           </Routes>
+
           <CartButton />
         </main>
       </body>

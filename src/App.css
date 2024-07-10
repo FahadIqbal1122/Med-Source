@@ -29,6 +29,7 @@ body {
 }
 
 .headerLogin {
+.headerLogin {
   align-self: center;
   background-image: none;
   background-position: 0 90%;
@@ -38,6 +39,7 @@ body {
   border-style: solid;
   border-width: 2px;
   box-shadow: rgba(0, 0, 0, 0.2) 15px 28px 25px -18px;
+  box-shadow: rgba(0, 0, 0, 0.2) 15px 28px 25px -18px;
   box-sizing: border-box;
   color: #a18cd1;
   cursor: pointer;
@@ -46,6 +48,7 @@ body {
   font-size: 1rem;
   line-height: 23px;
   outline: none;
+  padding: 0.75rem;
   padding: 0.75rem;
   text-decoration: none;
   transition: all 235ms ease-in-out;
@@ -60,16 +63,22 @@ body {
 .headerLogin a {
   text-decoration: none;
 }
+.headerLogin a {
+  text-decoration: none;
+}
 
 .headerLogin:hover {
+  box-shadow: rgba(0, 0, 0, 0.3) 2px 8px 8px -5px;
   box-shadow: rgba(0, 0, 0, 0.3) 2px 8px 8px -5px;
   transform: translate3d(0, 2px, 0);
 }
 
 .headerLogin:focus {
   box-shadow: rgba(0, 0, 0, 0.3) 2px 8px 4px -6px;
+  box-shadow: rgba(0, 0, 0, 0.3) 2px 8px 4px -6px;
 }
 
+#logout {
 #logout {
   border: none;
   background-color: #f0f1ff;
@@ -101,8 +110,10 @@ body {
 .dropdown-menu a {
   display: block;
   padding: 0.75rem;
+  padding: 0.75rem;
   border: 2px solid;
   border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
+  box-shadow: rgba(0, 0, 0, 0.2) 15px 28px 25px -18px;
   box-shadow: rgba(0, 0, 0, 0.2) 15px 28px 25px -18px;
   box-sizing: border-box;
   color: black;
@@ -120,10 +131,12 @@ body {
 
 .dropdown-menu a:hover {
   box-shadow: rgba(0, 0, 0, 0.3) 2px 8px 8px -5px;
+  box-shadow: rgba(0, 0, 0, 0.3) 2px 8px 8px -5px;
   transform: translate3d(0, 2px, 0);
 }
 
 .dropdown-menu a:focus {
+  box-shadow: rgba(0, 0, 0, 0.3) 2px 8px 4px -6px;
   box-shadow: rgba(0, 0, 0, 0.3) 2px 8px 4px -6px;
 }
 
@@ -495,6 +508,8 @@ body {
   margin-right: 10px;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
     'Lucida Sans', Arial, sans-serif;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+    'Lucida Sans', Arial, sans-serif;
   font-weight: bold;
 }
 
@@ -515,6 +530,8 @@ body {
   cursor: pointer;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
     'Lucida Sans', Arial, sans-serif;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+    'Lucida Sans', Arial, sans-serif;
 }
 
 .signin-right {
@@ -528,7 +545,7 @@ body {
   width: 100%;
 }
 
-
+<<<<<<< HEAD
 .profile {
   display: grid;
   align-items: center;
@@ -549,7 +566,7 @@ h2 {
   border-radius: 5px;
   border: 1px solid #ccc;
 }
-
+=======
 /* cart */
 .cart-container {
   padding: 20px;
@@ -689,81 +706,4 @@ h2 {
   text-decoration: underline;
 }
 
-/* Details */
-.productsdetails-page-container {
-  max-width: 800px;
-  margin: 20px auto;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  background-color: #ffffff;
-  text-align: center;
-  font-family: Arial, sans-serif;
-}
-
-.productsdetails-page-container img {
-  width: 100%;
-  max-width: 300px;
-  height: auto;
-  border-radius: 8px;
-  margin-bottom: 20px;
-}
-
-.productsdetails-page-container h1 {
-  font-size: 2em;
-  margin: 10px 0;
-}
-
-.productsdetails-page-container h3 {
-  font-size: 1.5em;
-  color: #666;
-  margin: 10px 0;
-}
-
-.productsdetails-page-container p {
-  font-size: 1.2em;
-  color: #333;
-  margin: 10px 0;
-}
-
-.productsdetails-page-container button {
-  background-color: #007bff;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  cursor: pointer;
-  border-radius: 5px;
-  margin: 10px;
-}
-
-.productsdetails-page-container button:hover {
-  background-color: #0056b3;
-}
-
-.submit-button {
-  background-color: #28a745;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  cursor: pointer;
-  border-radius: 5px;
-  margin: 10px;
-}
-
-.submit-button:hover {
-  background-color: #218838;
-}
-
-.delete-button {
-  background-color: #dc3545;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  cursor: pointer;
-  border-radius: 5px;
-  margin: 10px;
-}
-
-.delete-button:hover {
-  background-color: #c82333;
-}
+>>>>>>> 2c087df (cart page done)

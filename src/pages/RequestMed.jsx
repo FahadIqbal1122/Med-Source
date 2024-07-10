@@ -50,13 +50,6 @@ const RequestMed = ({ user }) => {
           <form onSubmit={handleSubmit}>
             <div className="form-group">
               <label htmlFor="patientName">Patient Name:</label>
-              <input
-                type="number"
-                id="patientName"
-                value={patientName}
-                onChange={(e) => setPatientName(e.target.value)}
-                required
-              />
             </div>
             <div className="form-group">
               <label htmlFor="MedicineName">Medicine Name:</label>

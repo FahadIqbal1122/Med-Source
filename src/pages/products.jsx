@@ -6,6 +6,7 @@ import ProductCard from "../components/ProductCard"
 
 const Products = ({ user }) => {
   const [products, setProducts] = useState([])
+
   const navigate = useNavigate()
 
   const handleSubmit = async (productId) => {

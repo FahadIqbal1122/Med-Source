@@ -16,11 +16,20 @@ const Contact = ({ user }) => {
     const fetchRecivers = async () => {
       try {
         const response = await axios.get("http://localhost:5000/users")
-        const filteredUsers = response.data.filter(
-          (user) => user.id !== user.logged_user
-        )
-        console.log(filteredUsers)
-        setRecievers(filteredUsers)
+        if (user.patient == true) {
+          const filteredUsers = response.data.filter(
+            (user) => user.patient == false && user.id !== user.logged_user
+          )
+          console.log(filteredUsers)
+          setRecievers(filteredUsers)
+        } else if (user.patient == false) {
+          const filteredUsers = response.data.filter(
+            (user) => user.patient === true && user.id !== user.logged_user
+          )
+          console.log(filteredUsers)
+          setRecievers(filteredUsers)
+        }
+
         setUsers(response.data)
       } catch (error) {
         console.error("Error fetching users:", error)
@@ -98,6 +107,7 @@ const Contact = ({ user }) => {
               <div className="form-group">
                 <label htmlFor="PatientIDCadr">Patient CPR</label>
                 <input
+                  type="number"
                   id="PatientIDCadr"
                   value={PatientIDCadr}
                   onChange={(e) => setPatientIDCadr(e.target.value)}

@@ -1,14 +1,15 @@
-import axios from 'axios'
-import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
-import { useNavigate } from 'react-router-dom'
+import axios from "axios"
+import React, { useEffect, useState } from "react"
+import { useParams } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 
-import '../App.css'
+import "../App.css"
 
 const Details = ({ user }) => {
   const { productId } = useParams()
   const navigate = useNavigate()
   const [products, setProducts] = useState([])
+  const [message, setMessage] = useState("")
 
   useEffect(() => {
     const getAllProducts = async () => {
@@ -21,11 +22,16 @@ const Details = ({ user }) => {
   }, [])
 
   const addToCart = async () => {
-    const res = await axios.put(
-      `http://localhost:5000/carts/${user.logged_user}`,
-      { product_id: [products.id] }
-    )
-    console.log(res)
+    try {
+      const res = await axios.put(
+        `http://localhost:5000/carts/${user.logged_user}`,
+        { product_id: [products.id] }
+      )
+      setMessage("Added to cart")
+      console.log(res)
+    } catch (error) {
+      setMessage("Failed to add to cart")
+    }
   }
   const deleteIt = async () => {
     const response = await axios.delete(
@@ -35,11 +41,16 @@ const Details = ({ user }) => {
   }
 
   const addToList = async () => {
-    const res = await axios.put(
-      `http://localhost:5000/medication_lists/${user.logged_user}`,
-      { product_id: [products.id] }
-    )
-    console.log(res)
+    try {
+      const res = await axios.put(
+        `http://localhost:5000/medication_lists/${user.logged_user}`,
+        { product_id: [products.id] }
+      )
+      setMessage("Added to List")
+      console.log(res)
+    } catch (error) {
+      setMessage("Failed to add to List")
+    }
   }
 
   return (
@@ -68,11 +79,12 @@ const Details = ({ user }) => {
           >
             Edit Product
           </button>
- <button onClick={deleteIt} className="submit-button">
-        Delete Product
-      </button>
+          <button onClick={deleteIt} className="submit-button">
+            Delete Product
+          </button>
         </>
       )}
+      {message && <h1>{message}</h1>}
     </>
   )
 }

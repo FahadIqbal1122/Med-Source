@@ -1,7 +1,7 @@
-import { useRef } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useRef } from "react"
+import { useNavigate } from "react-router-dom"
 
-const Home = () => {
+const Home = ({ user }) => {
   const formSectionRef = useRef(null)
   const renderCountSectionRef = useRef(null)
   const ourServices2Ref = useRef(null)
@@ -9,7 +9,7 @@ const Home = () => {
   const navigate = useNavigate()
 
   const scrollToElement = (ref) => {
-    ref.current.scrollIntoView({ behavior: 'smooth' })
+    ref.current.scrollIntoView({ behavior: "smooth" })
   }
 
   return (
@@ -97,7 +97,7 @@ const Home = () => {
           <img src="../public/images/lm.png" alt="My Medicine" />
           <button
             onClick={() => {
-              navigate('/MyMedicines')
+              navigate("/MyMedicines")
             }}
           >
             My Medicine
@@ -107,28 +107,29 @@ const Home = () => {
           <img src="../public/images/om.png" alt="Request Medicine" />
           <button
             onClick={() => {
-              navigate('/RequestMed')
+              navigate("/RequestMed")
             }}
           >
             Request Medicine
           </button>
+          {user && !user.patient ? (
+            <button
+              onClick={() => {
+                navigate("/RequestedProducts")
+              }}
+            >
+              Requested Medicines
+            </button>
+          ) : null}
         </div>
         <div className="service2">
           <img src="../public/images/cp.png" alt="Contact the Pharmacist" />
           <button
             onClick={() => {
-              navigate('/Contact')
+              navigate("/Contact")
             }}
           >
             Contact the Pharmacist
-          </button>
-
-          <button
-            onClick={() => {
-              navigate('/RequestedProducts')
-            }}
-          >
-            Checkinggggg
           </button>
         </div>
       </section>

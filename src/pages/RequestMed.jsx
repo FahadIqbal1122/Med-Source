@@ -1,6 +1,9 @@
 import axios from 'axios'
 import React, { useState, useEffect } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
+import axios from 'axios'
+import React, { useState, useEffect } from 'react'
+import { useNavigate, Link } from 'react-router-dom'
 const RequestMed = ({ user }) => {
   const [patientName, setPatientName] = useState('')
   const [medicines, setMedicines] = useState([])
@@ -18,6 +21,14 @@ const RequestMed = ({ user }) => {
       user_id: user.logged_user,
       product_ids: selectedMedicine
     })
+
+    const emailResponse = await axios.post(`http://localhost:5000/send-email`, {
+      user_email: 'osamamohammad343@gmail.com',
+      medicine_name: medicines.find(
+        (med) => med.id === parseInt(selectedMedicine)
+      ).name
+    })
+    console.log(emailResponse)
     console.log(sent)
     setPatientName('')
     setRequestDetails('')
@@ -39,16 +50,13 @@ const RequestMed = ({ user }) => {
     <div className="request-med">
       {user ? (
         <>
-          <div>
-            <button
-              className="submit-button"
-              onClick={() => {
-                navigate('/RequestedProducts')
-              }}
-            >
-              Your Requested products
-            </button>
-          </div>
+          <button
+            onClick={() => {
+              navigate('/RequestedProducts')
+            }}
+          >
+            Your Requested products
+          </button>
           <h2>Request Medical Information</h2>
           <form onSubmit={handleSubmit}>
             <div className="form-group">
@@ -87,6 +95,7 @@ const RequestMed = ({ user }) => {
       ) : (
         <>
           <h1>Please Login</h1>
+          <Link to={'/signin'}>Login</Link>
           <Link to={'/signin'}>Login</Link>
         </>
       )}

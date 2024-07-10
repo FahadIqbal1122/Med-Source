@@ -26,9 +26,11 @@ const Nav = ({ user, handleLogOut }) => {
 
               {isLoggedIn && (
                 <NavLink to="/">
-                  <button onClick={handleLogOut}>Logout</button>
+                  <button className="service2" onClick={handleLogOut}>
+                    Logout
+                  </button>
                   <NavLink to="/Profile">
-                    <button>Profile</button>
+                    <button className="service2">Profile</button>
                   </NavLink>
                 </NavLink>
               )}

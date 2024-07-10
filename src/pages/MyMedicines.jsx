@@ -3,6 +3,7 @@ import { useState, useEffect } from "react"
 
 const MyMedicines = ({ user }) => {
   const [products, setProducts] = useState(null)
+  const [change, setChange] = useState(false)
 
   const checkIfListtExists = async () => {
     try {
@@ -36,7 +37,7 @@ const MyMedicines = ({ user }) => {
     }
     getProducts()
     initializeList()
-  }, [])
+  }, [change])
   console.log(products)
   const createNewlist = async (user_id, totalAmount) => {
     try {
@@ -57,13 +58,10 @@ const MyMedicines = ({ user }) => {
 
   const RemoveProduct = async (pro_id) => {
     const res = await axios.put(
-      `http://localhost:5000/medication_lists/${user.logged_user}`,
-      {
-        product_id: [pro_id],
-      }
+      `http://localhost:5000/medication_lists/${user.logged_user}/${pro_id}`
     )
     console.log(res)
-    console.log(ProductId)
+    setChange(true)
   }
 
   return (

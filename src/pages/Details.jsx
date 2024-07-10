@@ -28,6 +28,14 @@ const Details = ({ user }) => {
     console.log(res)
   }
 
+  const addToList = async () => {
+    const res = await axios.put(
+      `http://localhost:5000/medication_lists/${user.logged_user}`,
+      { product_id: [products.id] }
+    )
+    console.log(res)
+  }
+
   return (
     <>
       <div className="productsdetails-page-container">
@@ -37,6 +45,7 @@ const Details = ({ user }) => {
         <p>{products.description}</p>
         <p>{products.price}</p>
         <button onClick={addToCart}>Add to cart</button>
+        <button onClick={addToList}>Add to List</button>
       </div>
 
       <button

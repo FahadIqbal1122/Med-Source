@@ -8,16 +8,18 @@ import RequestMed from './pages/RequestMed'
 import MyMedicines from './pages/MyMedicines'
 import Contact from './pages/Contact'
 import CartButton from './components/CartButton'
-import Products from './pages/Products'
+import Add from './pages/Add'
+import Edit from './pages/Edit'
+import ProductBrand from './pages/ProductBrand'
+import Products from './pages/products'
 import Register from './pages/Register'
 import SignIn from './pages/SignIn'
 import Details from './pages/Details'
+import CartPro from './pages/CartPro'
 import RequestedProducts from './components/RequestedProducts'
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-import Add from './pages/Add'
-import Edit from './pages/Edit'
-import ProductBrand from "./pages/ProductBrand"
+import ProductBrand from './pages/ProductBrand'
 
 const App = () => {
   const [user, setUser] = useState(null)

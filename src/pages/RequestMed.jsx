@@ -1,26 +1,26 @@
-import axios from "axios"
-import React, { useState, useEffect } from "react"
-import { useNavigate, Link } from "react-router-dom"
+import axios from 'axios'
+import React, { useState, useEffect } from 'react'
+import { useNavigate, Link } from 'react-router-dom'
 const RequestMed = ({ user }) => {
-  const [patientName, setPatientName] = useState("")
+  const [patientName, setPatientName] = useState('')
   const [medicines, setMedicines] = useState([])
-  const [selectedMedicine, setSelectedMedicine] = useState("")
-  const [requestDetails, setRequestDetails] = useState("")
+  const [selectedMedicine, setSelectedMedicine] = useState('')
+  const [requestDetails, setRequestDetails] = useState('')
   const navigate = useNavigate()
   const handleSubmit = async (e) => {
     e.preventDefault()
-    console.log("Form submitted with:", {
+    console.log('Form submitted with:', {
       patientName,
 
-      requestDetails,
+      requestDetails
     })
     const sent = await axios.post(`http://localhost:5000/request`, {
       user_id: user.logged_user,
-      product_ids: selectedMedicine,
+      product_ids: selectedMedicine
     })
     console.log(sent)
-    setPatientName("")
-    setRequestDetails("")
+    setPatientName('')
+    setRequestDetails('')
   }
   useEffect(() => {
     const get_products = async () => {
@@ -39,13 +39,16 @@ const RequestMed = ({ user }) => {
     <div className="request-med">
       {user ? (
         <>
-          <button
-            onClick={() => {
-              navigate("/RequestedProducts")
-            }}
-          >
-            Your Requested products
-          </button>
+          <div>
+            <button
+              className="submit-button"
+              onClick={() => {
+                navigate('/RequestedProducts')
+              }}
+            >
+              Your Requested products
+            </button>
+          </div>
           <h2>Request Medical Information</h2>
           <form onSubmit={handleSubmit}>
             <div className="form-group">
@@ -91,7 +94,7 @@ const RequestMed = ({ user }) => {
       ) : (
         <>
           <h1>Please Login</h1>
-          <Link to={"/signin"}>Login</Link>
+          <Link to={'/signin'}>Login</Link>
         </>
       )}
     </div>

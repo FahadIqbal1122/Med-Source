@@ -28,12 +28,18 @@ const Profile = ({ user }) => {
 
   return (
     <>
-      <div>
+      <div className="request-med">
         <h2>User Profile</h2>
-        <p>Name: {userProfile.name}</p>
-        <p>Email: {userProfile.email}</p>
-        <p>phone number: {userProfile.Mobile}</p>
-        <Link to={`/profile/edit/${user.logged_user}`}>Edit Profile</Link>
+
+        <div className="profile">
+          <p>Name: {userProfile.name}</p>
+          <p>Email: {userProfile.email}</p>
+          <p>phone number: {userProfile.Mobile}</p>
+        </div>
+
+        <div className="headerLogin" id="Profilelink">
+          <Link to={`/profile/edit/${user.logged_user}`}>Edit Profile</Link>
+        </div>
       </div>
     </>
   )

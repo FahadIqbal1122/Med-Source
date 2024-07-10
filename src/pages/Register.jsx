@@ -37,10 +37,10 @@ const Register = () => {
 
   return (
     <div className="signin col">
-      <div className="card-overlay centered">
-        <form className="col" onSubmit={handleSubmit}>
+      <div className="signin-left">
+        <form className="signin-form" onSubmit={handleSubmit}>
           <div className="input-wrapper">
-            <label htmlFor="name">Name</label>
+            <label htmlFor="name">Name </label>
             <input
               onChange={handleChange}
               name="name"
@@ -92,7 +92,7 @@ const Register = () => {
               required
             />
           </div>
-          <button
+          <button className="login-button"
             disabled={
               !formValues.email ||
               (!formValues.password &&
@@ -102,6 +102,9 @@ const Register = () => {
             Sign up
           </button>
         </form>
+      </div>
+      <div className="signin-right">
+        <img src="../public/images/register.png" alt="Sign In Illustration" />
       </div>
     </div>
   )

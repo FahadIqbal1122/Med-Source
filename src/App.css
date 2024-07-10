@@ -394,3 +394,69 @@ body {
   font-size: 16px;
   color: #666;
 }
+
+/* SignIn.css */
+.signin-page {
+  display: flex;
+  height: 90vh;
+  align-items: center;
+  justify-content: center;
+}
+
+.signin-left {
+  background-color: #e4b9f0;
+  padding: 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.signin-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-wrapper {
+  margin-bottom: 10vh;
+}
+
+.input-wrapper label {
+  font-size: 2em;
+  margin-right: 10px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-weight: bold;
+}
+
+.input-wrapper input {
+  padding: 15px;
+  font-size: 1em;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-left: 20px;
+}
+
+.login-button {
+  padding: 10px 20px;
+  font-size: 2em;
+  border: none;
+  background-color: #000;
+  color: #fff;
+  cursor: pointer;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.signin-right {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.signin-right img {
+  width: 100%;
+}
+
+

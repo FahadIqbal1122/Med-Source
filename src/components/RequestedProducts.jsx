@@ -32,8 +32,7 @@ const RequestedProducts = ({ user }) => {
               <img src={pro.image} />
               <h2>{pro.name}</h2>
               <p>{pro.description}</p>
-              <p>{pro.id}</p>
-              <p>req: {req.id}</p>
+
               <button onClick={() => Removeit(req.id)}>Remove</button>
             </div>
           ))}

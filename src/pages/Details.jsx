@@ -1,9 +1,9 @@
-import axios from 'axios'
-import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
-import { useNavigate } from 'react-router-dom'
+import axios from "axios"
+import React, { useEffect, useState } from "react"
+import { useParams } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 
-import '../App.css'
+import "../App.css"
 
 const Details = ({ user }) => {
   const { productId } = useParams()
@@ -28,6 +28,14 @@ const Details = ({ user }) => {
     console.log(res)
   }
 
+  const addToList = async () => {
+    const res = await axios.put(
+      `http://localhost:5000/medication_lists/${user.logged_user}`,
+      { product_id: [products.id] }
+    )
+    console.log(res)
+  }
+
   return (
     <>
       <div className="productsdetails-page-container">
@@ -37,6 +45,7 @@ const Details = ({ user }) => {
         <p>{products.description}</p>
         <p>{products.price}</p>
         <button onClick={addToCart}>Add to cart</button>
+        <button onClick={addToList}>Add to List</button>
       </div>
 
       <button
@@ -49,7 +58,7 @@ const Details = ({ user }) => {
       </button>
       <button
         onClick={() => {
-          navigate('/Products')
+          navigate("/Products")
         }}
         className="submit-button"
       >

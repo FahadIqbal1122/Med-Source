@@ -17,6 +17,29 @@ import SignIn from "./pages/SignIn"
 import Details from "./pages/Details"
 import CartPro from "./pages/CartPro"
 import RequestedProducts from "./components/RequestedProducts"
+import Profile from "./pages/Profile"
+import Editprofile from "./pages/Editprofile"
+import React, { useState, useEffect } from "react"
+import axios from "axios"
+import "./App.css"
+import { Routes, Route } from "react-router-dom"
+import Home from "./pages/Home"
+import Nav from "./components/Nav"
+import Categories from "./components/Categories"
+import Brands from "./components/Brands"
+import RequestMed from "./pages/RequestMed"
+import MyMedicines from "./pages/MyMedicines"
+import Contact from "./pages/Contact"
+import CartButton from "./components/CartButton"
+import Add from "./pages/Add"
+import Edit from "./pages/Edit"
+import ProductBrand from "./pages/ProductBrand"
+import Products from "./pages/products"
+import Register from "./pages/Register"
+import SignIn from "./pages/SignIn"
+import Details from "./pages/Details"
+import CartPro from "./pages/CartPro"
+import RequestedProducts from "./components/RequestedProducts"
 import React, { useState, useEffect } from "react"
 import axios from "axios"
 import ProductCate from "./pages/ProductCate"
@@ -99,6 +122,13 @@ const App = () => {
             />
             <Route path="/orders" element={<Orders user={user} />} />
             <Route path="/CartPro" element={<CartPro user={user} />}></Route>
+            <Route path="/Profile" element={<Profile user={user} />}></Route>
+            {/* <Route path="/profile/edit/:userId" exact component={Editprofile} /> */}
+            <Route
+              path="/profile/edit/:id"
+              element={<Editprofile user={user} />}
+              exact
+            />
             <Route
               path="/ProductCate/:category"
               element={<ProductCate setUser={setUser} />}

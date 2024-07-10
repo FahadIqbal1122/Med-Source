@@ -1,17 +1,21 @@
-import axios from "axios"
-import { useState, useEffect } from "react"
+import axios from 'axios'
+import { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const CartPro = ({ user }) => {
   const [products, setProducts] = useState(null)
+  const [change, setChange] = useState(false)
 
+  const navigate = useNavigate()
   const checkIfCartExists = async () => {
     try {
       const response = await axios.get(
         `http://localhost:5000/carts/${user.logged_user}`
       )
+
       return response.data && Object.keys(response.data).length > 0
     } catch (error) {
-      console.error("Error checking for cart:", error)
+      console.error('Error checking for cart:', error)
       return false
     }
   }
@@ -22,46 +26,43 @@ const CartPro = ({ user }) => {
       if (!cartExists) {
         const newCartData = await createNewCart(user.logged_user, 0)
         if (newCartData) {
-          console.log("New cart created successfully")
+          console.log('New cart created successfully')
         }
       }
       // Fetch products regardless of whether a new cart was created
     }
     const getProducts = async () => {
-      console.log("this is get products")
+      console.log('this is get products')
       const response = await axios.get(
         `http://localhost:5000/carts/${user.logged_user}`
       )
-      console.log("products", response.data)
+      console.log('products', response.data)
       setProducts(response.data.products)
     }
     getProducts()
     initializeCart()
-  }, [])
+  }, [change])
   console.log(products)
   const createNewCart = async (user_id, totalAmount) => {
     try {
       const response = await axios.post(`http://localhost:5000/carts`, {
         user_id: user_id,
         product_id: [],
-        total_amount: totalAmount,
+        total_amount: totalAmount
       })
       return response.data
     } catch (error) {
-      console.error("Error creating cart:", error)
+      console.error('Error creating cart:', error)
       return null
     }
   }
 
   const RemoveProduct = async (pro_id) => {
     const res = await axios.put(
-      `http://localhost:5000/carts/${user.logged_user}`,
-      {
-        product_id: [pro_id],
-      }
+      `http://localhost:5000/carts/${user.logged_user}/${pro_id}`
     )
     console.log(res)
-    console.log(ProductId)
+    setChange(true)
   }
 
   return (
@@ -78,6 +79,13 @@ const CartPro = ({ user }) => {
       ) : (
         <p>No products available</p>
       )}
+      <button
+        onClick={() => {
+          navigate('/orders')
+        }}
+      >
+        Checkout
+      </button>
     </div>
   )
 }

@@ -105,7 +105,12 @@ const CartPro = ({ user }) => {
         <>
           <div className="please-login">
           <h1>Please Login</h1>
+<<<<<<< HEAD
           <Link to={'/signin'}>Login</Link>
+=======
+          <Link to={"/signin"}>Login</Link>
+        </div>
+>>>>>>> 2c087df (cart page done)
         </>
       )}
     </div>

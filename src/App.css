@@ -21,7 +21,6 @@ body {
   justify-content: space-evenly;
   align-items: center;
   text-decoration: none;
-
 }
 
 .nav a {
@@ -29,7 +28,7 @@ body {
   color: black;
 }
 
-.headerLogin{
+.headerLogin {
   align-self: center;
   background-image: none;
   background-position: 0 90%;
@@ -38,7 +37,7 @@ body {
   border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
   border-style: solid;
   border-width: 2px;
-  box-shadow: rgba(0, 0, 0, .2) 15px 28px 25px -18px;
+  box-shadow: rgba(0, 0, 0, 0.2) 15px 28px 25px -18px;
   box-sizing: border-box;
   color: #a18cd1;
   cursor: pointer;
@@ -47,7 +46,7 @@ body {
   font-size: 1rem;
   line-height: 23px;
   outline: none;
-  padding: .75rem;
+  padding: 0.75rem;
   text-decoration: none;
   transition: all 235ms ease-in-out;
   border-bottom-left-radius: 15px 255px;
@@ -58,17 +57,20 @@ body {
   -webkit-user-select: none;
   touch-action: manipulation;
 }
+.headerLogin a {
+  text-decoration: none;
+}
 
 .headerLogin:hover {
-  box-shadow: rgba(0, 0, 0, .3) 2px 8px 8px -5px;
+  box-shadow: rgba(0, 0, 0, 0.3) 2px 8px 8px -5px;
   transform: translate3d(0, 2px, 0);
 }
 
 .headerLogin:focus {
-  box-shadow: rgba(0, 0, 0, .3) 2px 8px 4px -6px;
+  box-shadow: rgba(0, 0, 0, 0.3) 2px 8px 4px -6px;
 }
 
-#logout{
+#logout {
   border: none;
   background-color: #f0f1ff;
   color: black;
@@ -98,10 +100,10 @@ body {
 
 .dropdown-menu a {
   display: block;
-  padding: .75rem;
+  padding: 0.75rem;
   border: 2px solid;
   border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
-  box-shadow: rgba(0, 0, 0, .2) 15px 28px 25px -18px;
+  box-shadow: rgba(0, 0, 0, 0.2) 15px 28px 25px -18px;
   box-sizing: border-box;
   color: black;
   cursor: pointer;
@@ -117,12 +119,12 @@ body {
 }
 
 .dropdown-menu a:hover {
-  box-shadow: rgba(0, 0, 0, .3) 2px 8px 8px -5px;
+  box-shadow: rgba(0, 0, 0, 0.3) 2px 8px 8px -5px;
   transform: translate3d(0, 2px, 0);
 }
 
 .dropdown-menu a:focus {
-  box-shadow: rgba(0, 0, 0, .3) 2px 8px 4px -6px;
+  box-shadow: rgba(0, 0, 0, 0.3) 2px 8px 4px -6px;
 }
 
 .img1 {
@@ -491,7 +493,8 @@ body {
 .input-wrapper label {
   font-size: 2em;
   margin-right: 10px;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+    'Lucida Sans', Arial, sans-serif;
   font-weight: bold;
 }
 
@@ -510,7 +513,8 @@ body {
   background-color: #000;
   color: #fff;
   cursor: pointer;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+    'Lucida Sans', Arial, sans-serif;
 }
 
 .signin-right {
@@ -524,4 +528,23 @@ body {
   width: 100%;
 }
 
-
+.profile {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  padding: 15px;
+  font-size: 1.5em;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+h2 {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  padding: 15px;
+  font-size: 2em;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}

@@ -1,7 +1,11 @@
 import { useNavigate } from 'react-router-dom'
 
 const Categories = () => {
+  const navigate = useNavigate()
 
+  const handleNavigate = async (category) => {
+    navigate(`/ProductCate/${category}`)
+  }
 
   return (
     <>

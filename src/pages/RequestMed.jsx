@@ -1,26 +1,34 @@
-import axios from "axios"
-import React, { useState, useEffect } from "react"
-import { useNavigate, Link } from "react-router-dom"
+import axios from 'axios'
+import React, { useState, useEffect } from 'react'
+import { useNavigate, Link } from 'react-router-dom'
 const RequestMed = ({ user }) => {
-  const [patientName, setPatientName] = useState("")
+  const [patientName, setPatientName] = useState('')
   const [medicines, setMedicines] = useState([])
-  const [selectedMedicine, setSelectedMedicine] = useState("")
-  const [requestDetails, setRequestDetails] = useState("")
+  const [selectedMedicine, setSelectedMedicine] = useState('')
+  const [requestDetails, setRequestDetails] = useState('')
   const navigate = useNavigate()
   const handleSubmit = async (e) => {
     e.preventDefault()
-    console.log("Form submitted with:", {
+    console.log('Form submitted with:', {
       patientName,
 
-      requestDetails,
+      requestDetails
     })
     const sent = await axios.post(`http://localhost:5000/request`, {
       user_id: user.logged_user,
-      product_ids: selectedMedicine,
+      product_ids: selectedMedicine
     })
+
+    const emailResponse = await axios.post(`http://localhost:5000/send-email`, {
+      user_email: 'osamamohammad343@gmail.com',
+      medicine_name: medicines.find(
+        (med) => med.id === parseInt(selectedMedicine)
+      ).name
+    })
+    console.log(emailResponse)
     console.log(sent)
-    setPatientName("")
-    setRequestDetails("")
+    setPatientName('')
+    setRequestDetails('')
   }
   useEffect(() => {
     const get_products = async () => {
@@ -41,7 +49,7 @@ const RequestMed = ({ user }) => {
         <>
           <button
             onClick={() => {
-              navigate("/RequestedProducts")
+              navigate('/RequestedProducts')
             }}
           >
             Your Requested products
@@ -91,7 +99,7 @@ const RequestMed = ({ user }) => {
       ) : (
         <>
           <h1>Please Login</h1>
-          <Link to={"/signin"}>Login</Link>
+          <Link to={'/signin'}>Login</Link>
         </>
       )}
     </div>

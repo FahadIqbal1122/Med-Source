@@ -1,12 +1,15 @@
 import axios from 'axios'
 import React, { useState, useEffect } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
+import axios from 'axios'
+import React, { useState, useEffect } from 'react'
+import { useNavigate, Link } from 'react-router-dom'
 const RequestMed = ({ user }) => {
-  const [patientName, setPatientName] = useState('')
   const [medicines, setMedicines] = useState([])
   const [selectedMedicine, setSelectedMedicine] = useState('')
   const [requestDetails, setRequestDetails] = useState('')
   const navigate = useNavigate()
+
   const handleSubmit = async (e) => {
     e.preventDefault()
     console.log('Form submitted with:', {
@@ -27,7 +30,7 @@ const RequestMed = ({ user }) => {
     })
     console.log(emailResponse)
     console.log(sent)
-    setPatientName('')
+
     setRequestDetails('')
   }
   useEffect(() => {
@@ -42,7 +45,7 @@ const RequestMed = ({ user }) => {
     get_products()
     console.log(user)
   }, [])
-  console.log(selectedMedicine)
+
   return (
     <div className="request-med">
       {user ? (
@@ -99,6 +102,7 @@ const RequestMed = ({ user }) => {
       ) : (
         <>
           <h1>Please Login</h1>
+          <Link to={'/signin'}>Login</Link>
           <Link to={'/signin'}>Login</Link>
         </>
       )}

@@ -66,22 +66,24 @@ const CartPro = ({ user }) => {
   }
 
   return (
-    <div>
+    <div className="cart-container">
       {user ? (
         <>
           {products ? (
             products.map((pro) => (
-              <div key={pro.id}>
+              <div key={pro.id} className="cart-product">
                 <img src={pro.image} alt={pro.name} />
+                <div>
                 <h2>{pro.name}</h2>
-                <p>{pro.description}</p>
-                <button onClick={() => RemoveProduct(pro.id)}>Remove</button>
-              </div>
+                <h1>{pro.price} BD</h1>
+                <button className="cart-btn" onClick={() => RemoveProduct(pro.id)}> X </button>
+                </div>
+                </div>
             ))
           ) : (
             <p>No products available</p>
           )}
-          <button
+          <button className="checkout-btn"
             onClick={() => {
               navigate('/orders')
             }}
@@ -91,8 +93,10 @@ const CartPro = ({ user }) => {
         </>
       ) : (
         <>
+          <div className="please-login">
           <h1>Please Login</h1>
-          <Link to={'/signin'}>Login</Link>
+          <Link to={"/signin"}>Login</Link>
+        </div>
         </>
       )}
     </div>

@@ -12,36 +12,33 @@ const Contact = ({ user }) => {
   const [users, setUsers] = useState([])
 
   useEffect(() => {
-    console.log("useEffect with dependencies")
-    const fetchRecivers = async () => {
+    const fetchRecievers = async () => {
       try {
         const response = await axios.get("http://localhost:5000/users")
-        if (user.patient == true) {
-          const filteredUsers = response.data.filter(
-            (user) => user.patient == false && user.id !== user.logged_user
+        const loggedUserId = user.logged_user
+
+        let filteredUsers
+        if (user.patient) {
+          filteredUsers = response.data.filter(
+            (user) => !user.patient && user.id !== loggedUserId
           )
-          console.log(filteredUsers)
-          setRecievers(filteredUsers)
-        } else if (user.patient == false) {
-          const filteredUsers = response.data.filter(
-            (user) => user.patient === true && user.id !== user.logged_user
+        } else {
+          filteredUsers = response.data.filter(
+            (user) => user.patient && user.id !== loggedUserId
           )
-          console.log(filteredUsers)
-          setRecievers(filteredUsers)
         }
 
+        setRecievers(filteredUsers)
         setUsers(response.data)
       } catch (error) {
         console.error("Error fetching users:", error)
       }
     }
 
-    fetchRecivers()
-  }, [user.logged_user])
+    fetchRecievers()
+  }, [user])
 
   useEffect(() => {
-    console.log("useEffect no dependencies")
-
     getMessage()
   }, [])
 
@@ -51,15 +48,19 @@ const Contact = ({ user }) => {
       const filteredMessage = response.data.filter(
         (message) => message.receiver_id === user.logged_user
       )
-      console.log(response.data)
       setMessages(filteredMessage)
     } catch (error) {
-      console.error("Error fetching users:", error)
+      console.error("Error fetching messages:", error)
     }
   }
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+    if (!selectedReciver) {
+      alert("Please select a receiver")
+      return
+    }
+
     try {
       const response = await axios.post("http://localhost:5000/messages", {
         user_id: user.logged_user,
@@ -71,7 +72,7 @@ const Contact = ({ user }) => {
       setPatientName("")
       setPatientIDCadr("")
       setYourMessage("")
-      setMessages()
+      setSelectedReciver("")
       await getMessage()
     } catch (error) {
       console.error(
@@ -86,7 +87,6 @@ const Contact = ({ user }) => {
     return user ? user.name : "Unknown User"
   }
 
-  console.log("rendering")
   return (
     <>
       {user ? (
@@ -119,20 +119,19 @@ const Contact = ({ user }) => {
                 <select
                   id="receiverUser"
                   value={selectedReciver}
-                  onChange={(e) => {
-                    setSelectedReciver(e.target.value)
-                  }}
+                  onChange={(e) => setSelectedReciver(e.target.value)}
                   required
                 >
+                  <option value="">Select a receiver</option>
                   {recievers.map((reciever) => (
                     <option key={reciever.id} value={reciever.id}>
-                      {reciever.name}
+                      {reciever.first_name}
                     </option>
                   ))}
                 </select>
               </div>
               <div className="form-group">
-                <label htmlFor="YourMassege">Your Message:</label>
+                <label htmlFor="YourMessage">Your Message:</label>
                 <textarea
                   id="YourMessage"
                   value={YourMessage}
@@ -146,20 +145,17 @@ const Contact = ({ user }) => {
             </form>
           </div>
 
-          <div>
-            {" "}
-            <div>
-              <h3>Received Messages:</h3>
-              <ul>
-                {messages &&
-                  messages.map((message) => (
-                    <li key={message.id}>
-                      <strong>From: {getUserName(message.user_id)}</strong> -{" "}
-                      {message.Content}
-                    </li>
-                  ))}
-              </ul>
-            </div>
+          <div className="service2">
+            <h3>Received Messages:</h3>
+            <ul>
+              {messages &&
+                messages.map((message) => (
+                  <li key={message.id}>
+                    <strong>Meesage: {getUserName(message.user_id)}</strong> -{" "}
+                    {message.Content}
+                  </li>
+                ))}
+            </ul>
           </div>
         </>
       ) : (

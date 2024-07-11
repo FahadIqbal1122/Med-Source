@@ -22,6 +22,8 @@ const RequestMed = ({ user }) => {
       medicine_name: medicines.find(
         (med) => med.id === parseInt(selectedMedicine)
       ).name,
+      patient: user.username,
+      requestDetails: requestDetails,
     })
     console.log(emailResponse)
     console.log(sent)
@@ -32,7 +34,7 @@ const RequestMed = ({ user }) => {
     const get_products = async () => {
       const response = await axios.get(`http://localhost:5000/products`)
       const availableMedicines = response.data.filter(
-        (medicine) => medicine.available
+        (medicine) => !medicine.available
       )
       console.log(availableMedicines)
       setMedicines(availableMedicines)
@@ -40,7 +42,7 @@ const RequestMed = ({ user }) => {
     get_products()
     console.log(user)
   }, [])
-
+  console.log(requestDetails)
   return (
     <div className="request-med">
       {user ? (

@@ -46,7 +46,7 @@ const Register = () => {
   }
 
   return (
-    <div className="signin col">
+    <div className="signin-page">
       <div className="signin-left">
         <form className="signin-form" onSubmit={handleSubmit}>
           <div className="input-wrapper">

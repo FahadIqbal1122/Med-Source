@@ -21,7 +21,7 @@ const Home = ({ user }) => {
 
         <div className="about">
           <div className="here">
-            <h1>Here</h1>
+            <h1>Med Source</h1>
           </div>
 
           <div className="intro">

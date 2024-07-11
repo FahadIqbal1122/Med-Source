@@ -67,19 +67,21 @@ const MyMedicines = ({ user }) => {
 
   return (
     <div>
-      {products ? (
-        products.length > 0 ? (
-          products.map((pro) => (
-            <div key={pro.id}>
-              <img src={pro.image} alt={pro.name} />
-              <h2>{pro.name}</h2>
-              <p>{pro.description}</p>
-              <button onClick={() => RemoveProduct(pro.id)}>Remove</button>
-            </div>
-          ))
-        ) : (
-          <p>No products available</p>
-        )
+      {user ? (
+        products ? (
+          products.length > 0 ? (
+            products.map((pro) => (
+              <div key={pro.id}>
+                <img src={pro.image} alt={pro.name} />
+                <h2>{pro.name}</h2>
+                <p>{pro.description}</p>
+                <button onClick={() => RemoveProduct(pro.id)}>Remove</button>
+              </div>
+            ))
+          ) : (
+            <p>No products available</p>
+          )
+        ) : null
       ) : (
         <>
           <h1>Please Login</h1>
